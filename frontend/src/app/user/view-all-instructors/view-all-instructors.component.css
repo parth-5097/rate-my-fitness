@@ -1,0 +1,73 @@
+.usr-top-white-box {
+  padding: 30px 80px;
+}
+
+.instructors-section h3 {
+  color: #262e3a;
+  font-family: "Karla-Bold";
+  margin: 5px 0 50px 0;
+  font-size: 20px;
+}
+
+.instructors-section-inr {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.instructors-section-inr-left {
+  background: #005bea;
+  color: #fff;
+  border-radius: 50%;
+  width: 55px;
+  min-width: 55px;
+  max-width: 55px;
+  height: 55px;
+  vertical-align: middle;
+  line-height: 56px;
+  text-align: center;
+  font-size: 16px;
+  font-family: "Karla-Bold";
+}
+
+.instructors-section-inr-right {
+  margin-left: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.instructors-section-inr-right h6 {
+  color: #262e3a;
+  margin-bottom: 0;
+  font-family: "Karla-Bold";
+  font-size: 16px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.instructors-section-inr-right p {
+  color: #263238;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-family: "Karla-Regular";
+}
+
+.instructors-section-inr-star {
+  padding: 10px 0 5px;
+}
+
+@media (max-width: 991px) {
+  .usr-top-white-box {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .usr-top-white-box {
+    padding: 30px 15px;
+  }
+}

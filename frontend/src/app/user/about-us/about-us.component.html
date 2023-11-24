@@ -1,0 +1,315 @@
+<div class="container-fluid users-content">
+  <app-user-header></app-user-header>
+  <div class="row row-space-class row-space-class-inr">
+    <div
+      class="col-12 usrs-inr-pages-bg p-0"
+      style="
+        background: url(assets/images/hero-slide-img-1.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+      "
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="usrs-inr-pages-bg-text">
+              <h2 class="text-center">ABOUT</h2>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                  <li class="breadcrumb-item">
+                    <a href="javascript:void(0)">home</a>
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    about us
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="usr-top-white-box">
+            <div class="usr-comn-title">
+              <div class="d-flex align-items-center justify-content-center">
+                <div class="usr-comn-title-shap pos-relt">
+                  <img src="assets/images/line-shap-2.svg" alt="" />
+                </div>
+                <h2>What Rate My Fitness is all about</h2>
+                <div class="usr-comn-title-shap pos-relt-2">
+                  <img src="assets/images/line-shap-1.svg" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="abt-text-info text-center">
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book.
+              </p>
+              <p>
+                It has survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of
+                Lorem Ipsum.
+              </p>
+              <p>
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+                The point of using Lorem Ipsum is that it has a more-or-less
+                normal distribution of letters, as opposed to using 'Content
+                here, content here', making it look like readable English.
+              </p>
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row row-space-cls">
+    <div class="col-12 px-0">
+      <div class="trainer-section-silder">
+        <div class="trainer-section-silder-pos">
+          <div class="row align-items-center h-100 m-0">
+            <div class="col-lg-3 col-sm-2">
+              <div class="trainers-hor-text">
+                <h2>Trainers</h2>
+              </div>
+            </div>
+            <div class="col-lg-9 col-sm-10">
+              <div class="trainers-slider">
+                <ngx-slick-carousel
+                  class="carousel"
+                  #slickModal="slick-carousel"
+                  [config]="slideConfig"
+                >
+                  <div
+                    class="trainers-iteam slide"
+                    ngxSlickItem
+                    *ngFor="let trainer of TrainersSlides"
+                  >
+                    <div class="trainers-iteam-info">
+                      <div class="trainer-white-box">
+                        <img src="{{ trainer.avatar }}" alt="" />
+                        <h3>
+                          {{ trainer.first_name }} {{ trainer.last_name }}
+                        </h3>
+                        <p>{{ trainer.about }}</p>
+                        <div class="trainer-white-box-star">
+                          <div class="custom-star-rating">
+                            <div class="rating">
+                              <label>
+                                <input
+                                  type="radio"
+                                  value="1"
+                                  id="start1_{{ trainer.trainer_id }}"
+                                  [checked]="trainer.rating == 1"
+                                />
+                                <span class="icon">★</span>
+                              </label>
+                              <label>
+                                <input
+                                  type="radio"
+                                  value="2"
+                                  id="start2_{{ trainer.trainer_id }}"
+                                  [checked]="trainer.rating == 2"
+                                />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                              </label>
+                              <label>
+                                <input
+                                  type="radio"
+                                  value="3"
+                                  id="start3_{{ trainer.trainer_id }}"
+                                  [checked]="trainer.rating == 3"
+                                />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                              </label>
+                              <label>
+                                <input
+                                  type="radio"
+                                  value="4"
+                                  id="start4_{{ trainer.trainer_id }}"
+                                  [checked]="trainer.rating == 4"
+                                />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                              </label>
+                              <label>
+                                <input
+                                  type="radio"
+                                  value="5"
+                                  id="start5_{{ trainer.trainer_id }}"
+                                  [checked]="trainer.rating == 5"
+                                />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="trainer-white-box-btn">
+                          <a
+                            [routerLink]="['/rate-trainer', trainer.trainer_id]"
+                            class="btn"
+                            >Write Review</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ngx-slick-carousel>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row row-space-cls">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="usr-comn-title">
+            <div class="d-flex align-items-center justify-content-center">
+              <div class="usr-comn-title-shap pos-relt">
+                <img src="assets/images/line-shap-2.svg" alt="" />
+              </div>
+              <h2>BLOG</h2>
+              <div class="usr-comn-title-shap pos-relt-2">
+                <img src="assets/images/line-shap-1.svg" alt="" />
+              </div>
+            </div>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry'.
+            </p>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="row justify-content-center" *ngIf="BlogData?.length != 0">
+            <div class="col-xl-4 col-md-6 mb-4" *ngFor="let x of BlogData">
+              <div class="div-blog-bx">
+                <div class="div-blog-bx-hdr">
+                  <img src="{{ http.backendurl }}{{ x.blog_image }}" alt="" />
+                  <div class="div-blog-bx-hdr-shap">
+                    <img src="assets/images/blog-box-shap.svg" alt="" />
+                    <div class="div-blog-bx-hdr-shap-text">
+                      <div class="div-blog-bx-hdr-shap-text-pos">
+                        <p>{{ x.date }}</p>
+                        <span>{{ x.month }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="div-blog-bx-btm">
+                  <h4>{{ x.title }}</h4>
+                  <p>{{ x.description }}</p>
+                  <div class="div-blog-bx-btm-btn">
+                    <a
+                      [routerLink]="['/blog-details', x.id]"
+                      class="d-flex align-items-center justify-content-center"
+                    >
+                      <span>Read More</span>
+                      <img src="assets/images/right-arrow.svg" alt="" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="load-more-btn text-center py-3">
+                <a routerLink="/blog" class="btn">VIEW MORE</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row row-space-cls">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="usr-comn-title">
+            <div class="d-flex align-items-center justify-content-center">
+              <div class="usr-comn-title-shap pos-relt">
+                <img src="assets/images/line-shap-2.svg" alt="" />
+              </div>
+              <h2>Testimonial</h2>
+              <div class="usr-comn-title-shap pos-relt-2">
+                <img src="assets/images/line-shap-1.svg" alt="" />
+              </div>
+            </div>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry'.
+            </p>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="testimonial-slider">
+            <ngx-slick-carousel
+              class="carousel quick-view-thum-inr"
+              #slickModal="slick-carousel"
+              [config]="slideConfigTest"
+            >
+              <div
+                class="testimonial-iteam col-md-10 offset-md-1 text-center"
+                ngxSlickItem
+                *ngFor="let slide of TestiMonialslides"
+              >
+                <div class="testimonial-image">
+                  <img src="{{ slide.img }}" class="img-fluid" alt="" />
+                </div>
+                <div class="testimonial-name">{{ slide.title }}</div>
+                <div class="testimonial-discription">{{ slide.about }}</div>
+              </div>
+            </ngx-slick-carousel>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row ftr-shap-div align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="ftr-shap-class">
+            <h2>
+              <span>Find perfect trainer according</span> your needand without
+              westing your valuable time.
+            </h2>
+            <div class="text-center mt-4">
+              <a href="">GET STARTED</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-user-footer></app-user-footer>
+</div>

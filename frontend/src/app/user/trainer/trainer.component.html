@@ -1,0 +1,136 @@
+<div class="container-fluid users-content">
+  <app-user-header></app-user-header>
+  <div class="row row-space-class row-space-class-inr">
+    <div
+      class="col-12 usrs-inr-pages-bg p-0"
+      style="
+        background: url(assets/images/hero-slide-img-1.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+      "
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="usrs-inr-pages-bg-text">
+              <h2 class="text-center">trainers</h2>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                  <li class="breadcrumb-item">
+                    <a routerLink="/home">home</a>
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    trainers
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-top">
+    <div class="container">
+      <div class="row mr-0" *ngIf="TrainersSlides?.length != 0">
+        <div
+          class="col-lg-4 col-md-6 mb-3 pr-0"
+          *ngFor="let trainer of TrainersSlides"
+        >
+          <div class="trainer-white-box">
+            <img src="{{ trainer.avatar }}" alt="" />
+            <h3>{{ trainer.first_name }} {{ trainer.last_name }}</h3>
+            <p>{{ trainer.about }}</p>
+            <div class="trainer-white-box-star">
+              <div class="custom-star-rating">
+                <div class="rating">
+                  <label>
+                    <input
+                      type="radio"
+                      value="1"
+                      id="start1_{{ trainer.trainer_id }}"
+                      [checked]="trainer.rating == 1"
+                    />
+                    <span class="icon">★</span>
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      value="2"
+                      id="start2_{{ trainer.trainer_id }}"
+                      [checked]="trainer.rating == 2"
+                    />
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      value="3"
+                      id="start3_{{ trainer.trainer_id }}"
+                      [checked]="trainer.rating == 3"
+                    />
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      value="4"
+                      id="start4_{{ trainer.trainer_id }}"
+                      [checked]="trainer.rating == 4"
+                    />
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      value="5"
+                      id="start5_{{ trainer.trainer_id }}"
+                      [checked]="trainer.rating == 5"
+                    />
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="trainer-white-box-btn">
+              <a
+                [routerLink]="['/trainer-profile', trainer.trainer_id]"
+                class="btn"
+                >View Profile</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row ftr-shap-div align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="ftr-shap-class">
+            <h2>
+              <span>Find perfect trainer according</span> your needand without
+              westing your valuable time.
+            </h2>
+            <div class="text-center mt-4">
+              <a href="">GET STARTED</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-user-footer></app-user-footer>
+</div>

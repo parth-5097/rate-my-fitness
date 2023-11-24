@@ -1,0 +1,43 @@
+<div class="dash-wrapper admin-content">
+  <app-admin-sidebar></app-admin-sidebar>
+  <app-admin-header></app-admin-header>
+  <main class="content-wrapper-section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="comn-title">
+            <h2>Gym Details</h2>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="comn-white-box">
+            <div class="gym-dtels-div-main">
+              <div class="gym-dtels-div-img mb-3">
+                <img src="{{gym_avatar}}" alt="" />
+              </div>
+              <div class="dtls-pge-main">
+                <div class="dtls-pge-main-inr">
+                  <h4>Gym Name</h4>
+                  <p>{{gym_name}}</p>
+                </div>
+                <div class="dtls-pge-main-inr">
+                  <h4>Location</h4>
+                  <p>{{country}}</p>
+                </div>
+                <div class="dtls-pge-main-inr">
+                  <h4>Gym Address</h4>
+                  <p>{{suite_number}} {{street_address}}, {{city}}, {{state}} {{zipcode}}</p>
+                </div>
+                <div class="dtls-pge-main-inr">
+                  <h4>Mobile No.</h4>
+                  <p>{{phone}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="overlay toggle-icon-main"></div>
+    </div>
+  </main>
+</div>

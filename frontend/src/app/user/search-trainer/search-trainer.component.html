@@ -1,0 +1,232 @@
+<div class="container-fluid users-content">
+  <app-user-header></app-user-header>
+  <div class="row row-space-class row-space-class-inr">
+    <div class="col-12 usrs-inr-pages-bg p-0" style="background: url(assets/images/hero-slide-img-1.png); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="usrs-inr-pages-bg-text">
+              <h2 class="text-center">{{first_name}} {{last_name}}</h2>
+              <nav aria-label="breadcrumb" *ngIf="gym_name != '' && gym_name != null">
+                <ol class="breadcrumb justify-content-center">
+                  <li class="breadcrumb-item active" aria-current="page">Trainer in the gym department at {{gym_name}}</li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="usr-top-white-box">
+            <div class="mb-4">
+              <div class="row align-items-center">
+                <div class="col-md-6 bdr-line-new">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="text-center tp-div-rate">
+                      <h2>{{rating_float}}</h2>
+                      <div class="">
+                        <fieldset class="rating">
+                          <input type="radio" id="star5" name="rating" value="5" [checked]="rating == 5" />
+                          <label class="full" for="star5" title="Awesome - 5 stars"></label>
+                          <input type="radio" id="star4half" name="rating" value="4 and a half" [checked]="rating == 4.5" />
+                          <label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                          <input type="radio" id="star4" name="rating" value="4" [checked]="rating == 4" />
+                          <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                          <input type="radio" id="star3half" name="rating" value="3 and a half" [checked]="rating == 3.5" />
+                          <label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                          <input type="radio" id="star3" name="rating" value="3" [checked]="rating == 3" />
+                          <label class="full" for="star3" title="Meh - 3 stars"></label>
+                          <input type="radio" id="star2half" name="rating" value="2 and a half" [checked]="rating == 2.5" />
+                          <label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                          <input type="radio" id="star2" name="rating" value="2" [checked]="rating == 2" />
+                          <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                          <input type="radio" id="star1half" name="rating" value="1 and a half" [checked]="rating == 1.5" />
+                          <label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                          <input type="radio" id="star1" name="rating" value="1" [checked]="rating == 1" />
+                          <label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                          <input type="radio" id="starhalf" name="rating" value="half" [checked]="rating == 0.5" />
+                          <label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                        </fieldset>
+                      </div>
+                      <p>({{total_feedback}} Ratings)</p>
+                    </div>
+                    <div class="text-center tp-div-rate">
+                      <h3>{{level_of_difficulty}}</h3>
+                      <p>Level Of Difficulty</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="text-center tp-div-rate">
+                      <h3>{{will_take_training_again}}</h3>
+                      <p>Would Take Again</p>
+                    </div>
+                    <div>
+                      <div class="load-more-btn text-center">
+                        <a [routerLink]="['/rate-trainer',trainer_id]" class="btn clr-bg">Rate</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="src-trainer-btm">
+              <label>Trainer {{first_name}} {{last_name}}’s Top Tags</label>
+              <div class="tags-cust-div">
+                <ul>
+                  <li *ngFor="let tag of tags">{{tag}}</li>
+                </ul>
+              </div>
+            </div>
+            <div class="src-trainer-btm">
+              <div class="src-trainer-btm-ctr">
+                <div class="src-trainer-btm-ctr-top d-flex align-items-center">
+                  <img src="assets/images/cldr-icon.svg" alt="" />
+                  <span>{{feedback_created_at}}</span>
+                </div>
+                <div class="src-trainer-btm-ctr-ctr">
+                  <p>{{comment}}</p>
+<!--                  <button type="button" class="btn">EXCELLENT: FRONT SQUAT</button>-->
+                </div>
+<!--                <div class="src-trainer-btm-ctr-btm">-->
+<!--                  <ul class="d-flex align-items-center justify-content-md-end">-->
+<!--                    <li class="ml-3">-->
+<!--                      <img src="assets/images/dislike-icon.svg" alt="" />-->
+<!--                      <span>5</span>-->
+<!--                    </li>-->
+<!--                    <li class="ml-3">-->
+<!--                      <img src="assets/images/like-icon.svg" alt="" />-->
+<!--                      <span>1</span>-->
+<!--                    </li>-->
+<!--                    <li class="ml-3">-->
+<!--                      <img src="assets/images/flag-icon.svg" alt="" />-->
+<!--                    </li>-->
+<!--                  </ul>-->
+<!--                </div>-->
+              </div>
+            </div>
+            <div class="src-trainer-btm" *ngIf="similar_json_data?.length != 0">
+              <label>Checkout similar trainer</label>
+              <ul>
+                <li *ngFor="let similar of similar_json_data;">
+                  <a [routerLink]="['/search-trainer',similar]" target="_blank">
+                    <div class="trnr-div-hvr">
+                      <div class="instructors-section-inr">
+                        <div class="instructors-section-inr-left">
+                          {{similar.rating.toFixed(1)}}
+                        </div>
+                        <div class="instructors-section-inr-right">
+                          <h6>{{similar.first_name | titlecase }} {{similar.last_name | titlecase}}</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12" *ngIf="total_feedback != 0">
+          <div class="bdr-top-box d-sm-flex align-items-center">
+            <h2><span>{{total_feedback}}</span> Ratings</h2>
+<!--            <div class="ml-auto">-->
+<!--              <select class="custom-select">-->
+<!--                <option selected>All Exercise</option>-->
+<!--                <option value="1">One</option>-->
+<!--                <option value="2">Two</option>-->
+<!--                <option value="3">Three</option>-->
+<!--              </select>-->
+<!--            </div>-->
+          </div>
+          <div class="btm-box-new" *ngFor="let rate of json_rating_data">
+            <div class="btm-box-new-top">
+              <div class="src-trainer-btm">
+                <ul>
+                  <li>
+                    <div class="trnr-div-hvr">
+                      <div class="instructors-section-inr">
+                        <div class="instructors-section-inr-left">
+                          {{rate.trainer_rate.toFixed(1)}}
+                        </div>
+                        <div class="instructors-section-inr-right">
+                          <h6>Rating</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="trnr-div-hvr">
+                      <div class="instructors-section-inr">
+                        <div class="instructors-section-inr-left dificl-bg">
+                          {{rate.level_of_difficulty.toFixed(1)}}
+                        </div>
+                        <div class="instructors-section-inr-right">
+                          <h6>Difficulty</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>Would Take Again : <span *ngIf="rate.will_take_training_again == 1">Yes</span><span *ngIf="rate.will_take_training_again == 0">No</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="btm-box-new-ctr">
+              <div class="src-trainer-btm-ctr-top d-sm-flex align-items-center">
+                <img src="assets/images/cldr-icon2.svg" alt="" />
+                <span>{{rate.feedback_created_at}}</span>
+<!--                <div class="ml-auto src-trainer-btm-ctr-ctr p-0 src-trnr-cust">-->
+<!--                  <h6>BACK SQUAT</h6>-->
+<!--                  <button type="button" class="btn mt-0">EXCELLENT</button>-->
+<!--                </div>-->
+              </div>
+              <div class="src-trainer-btm-ctr-ctr">
+                <p>{{rate.comment}}</p>
+                <div class="tags-cust-div mt-3">
+                  <ul>
+                    <li *ngFor="let tag of rate.tag_name">{{tag.tag_name}}</li>
+                  </ul>
+                </div>
+              </div>
+<!--              <div class="src-trainer-btm-ctr-btm">-->
+<!--                <ul class="d-flex align-items-center justify-content-md-end">-->
+<!--                  <li class="ml-3">-->
+<!--                    <img src="assets/images/dislike-icon.svg" alt="" />-->
+<!--                    <span>5</span>-->
+<!--                  </li>-->
+<!--                  <li class="ml-3">-->
+<!--                    <img src="assets/images/like-icon.svg" alt="" />-->
+<!--                    <span>1</span>-->
+<!--                  </li>-->
+<!--                  <li class="ml-3">-->
+<!--                    <img src="assets/images/flag-icon.svg" alt="" />-->
+<!--                  </li>-->
+<!--                </ul>-->
+<!--              </div>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row ftr-shap-div align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="ftr-shap-class">
+            <h2><span>Find perfect trainer according</span> your needand without westing your valuable time.</h2>
+            <div class="text-center mt-4">
+              <a href="">GET STARTED</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-user-footer></app-user-footer>
+</div>

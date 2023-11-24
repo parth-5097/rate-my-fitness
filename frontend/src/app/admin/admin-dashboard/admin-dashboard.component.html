@@ -1,0 +1,69 @@
+<div class="dash-wrapper admin-content">
+  <app-admin-sidebar></app-admin-sidebar>
+  <app-admin-header></app-admin-header>
+  <main class="content-wrapper-section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="comn-title">
+            <h2>Dashboard</h2>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="row mr-0">
+            <div class="col-xl-12 pr-0 mb-xl-0 mb-3">
+              <div class="dash-left-box">
+                <div class="row mr-0">
+                  <div class="col-md-4 pr-0 mb-3">
+                    <div class="dash-box-three dash-bx-tr-1">
+                      <h4>Total Users</h4>
+                      <h2>{{total_users}}</h2>
+                      <div class="dash-shap-div">
+                        <img src="../assets/images/dash-bx-shap.svg" alt="" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 pr-0 mb-3">
+                    <div class="dash-box-three dash-bx-tr-2">
+                      <h4>Total Trainers</h4>
+                      <h2>{{total_trainers}}</h2>
+                      <div class="dash-shap-div">
+                        <img src="../assets/images/dash-bx-shap.svg" alt="" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 pr-0 mb-3">
+                    <div class="dash-box-three dash-bx-tr-3">
+                      <h4>Total Gym</h4>
+                      <h2>{{total_gym}}</h2>
+                      <div class="dash-shap-div">
+                        <img src="../assets/images/dash-bx-shap.svg" alt="" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="main-chart-section mt-4">
+                  <div id="chart">
+                    <apx-chart
+                      [series]="chartOptions.series"
+                      [chart]="chartOptions.chart"
+                      [dataLabels]="chartOptions.dataLabels"
+                      [plotOptions]="chartOptions.plotOptions"
+                      [yaxis]="chartOptions.yaxis"
+                      [legend]="chartOptions.legend"
+                      [fill]="chartOptions.fill"
+                      [stroke]="chartOptions.stroke"
+                      [tooltip]="chartOptions.tooltip"
+                      [xaxis]="chartOptions.xaxis"
+                    ></apx-chart>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="overlay toggle-icon-main"></div>
+    </div>
+  </main>
+</div>

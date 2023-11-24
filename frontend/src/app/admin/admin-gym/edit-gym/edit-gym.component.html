@@ -1,0 +1,138 @@
+<div class="dash-wrapper admin-content">
+  <app-admin-sidebar></app-admin-sidebar>
+  <app-admin-header></app-admin-header>
+  <main class="content-wrapper-section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="dark-bg-box">
+            <h2>Edit Gym</h2>
+          </div>
+          <div class="comn-white-box-inr">
+            <div class="col-12">
+              <div class="dark-bg-box-inr">
+                <form [formGroup]="AddForm" (ngSubmit)="onSubmitForm()" class="row comn-form">
+                  <div class="col-12">
+                    <div class="gym-add-section-imsg">
+                      <p>Gym Image:</p>
+                      <div class="gym-add-section-imsg-div">
+                        <div class="image-input">
+                          <input type="file" (change)="upload($event)" accept="image/*" id="imageInput" />
+                          <label for="imageInput" class="image-button">
+                            <img src="../assets/images/file-uplod-bdr.svg" alt="" />
+                          </label>
+                          <img src="{{gym_avatar}}" class="image-preview" />
+                          <span class="change-image">Choose different image</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <input type="text" class="form-control comn-style" placeholder="Gym Name" formControlName="gym_name" [ngClass]="{ 'is-invalid': form_submitted && fval.gym_name.errors }"/>
+                      <div *ngIf="form_submitted && fval.gym_name.errors" class="invalid-feedback">
+                        <div *ngIf="fval.gym_name.errors.required">
+                          Gym Name is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <input type="text" class="form-control comn-style" placeholder="Gym Description" formControlName="description" [ngClass]="{ 'is-invalid': form_submitted && fval.description.errors }"/>
+                      <div *ngIf="form_submitted && fval.description.errors" class="invalid-feedback">
+                        <div *ngIf="fval.description.errors.required">
+                          Gym Description is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="text" class="form-control comn-style" placeholder="Mobile No." formControlName="phone" [ngClass]="{ 'is-invalid': form_submitted && fval.phone.errors }"/>
+                      <div *ngIf="(fval.phone.invalid ) || (fval.phone.invalid && (fval.phone.dirty || fval.phone.touched))" class="invalid-feedback">
+                        <div *ngIf="fval.phone.errors.required">
+                          Mobile Number is required
+                        </div>
+                        <div *ngIf="fval.phone.errors.pattern">
+                          Invalid Mobile Number
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="text" class="form-control comn-style" placeholder="Location" formControlName="country" [ngClass]="{ 'is-invalid': form_submitted && fval.country.errors }" />
+                      <div *ngIf="form_submitted && fval.country.errors" class="invalid-feedback">
+                        <div *ngIf="fval.country.errors.required">
+                          Country is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="number" class="form-control comn-style" placeholder="Suite Number" formControlName="suite_number" [ngClass]="{ 'is-invalid': form_submitted && fval.suite_number.errors }"/>
+                      <div *ngIf="form_submitted && fval.suite_number.errors" class="invalid-feedback">
+                        <div *ngIf="fval.suite_number.errors.required">
+                          Suite Number is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="text" class="form-control comn-style" placeholder="Street Address" formControlName="street_address" [ngClass]="{ 'is-invalid': form_submitted && fval.street_address.errors }"/>
+                      <div *ngIf="form_submitted && fval.street_address.errors" class="invalid-feedback">
+                        <div *ngIf="fval.street_address.errors.required">
+                          Street Address is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="text" class="form-control comn-style" placeholder="City" formControlName="city" [ngClass]="{ 'is-invalid': form_submitted && fval.city.errors }"/>
+                      <div *ngIf="form_submitted && fval.city.errors" class="invalid-feedback">
+                        <div *ngIf="fval.city.errors.required">
+                          City is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="text" class="form-control comn-style" placeholder="State" formControlName="state" [ngClass]="{ 'is-invalid': form_submitted && fval.state.errors }"/>
+                      <div *ngIf="form_submitted && fval.state.errors" class="invalid-feedback">
+                        <div *ngIf="fval.state.errors.required">
+                          State is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input type="number" class="form-control comn-style" placeholder="Zip Code" formControlName="zipcode" [ngClass]="{ 'is-invalid': form_submitted && fval.zipcode.errors }"/>
+                      <div *ngIf="form_submitted && fval.zipcode.errors" class="invalid-feedback">
+                        <div *ngIf="fval.zipcode.errors.required">
+                          Zip Code is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-btns text-center">
+                      <button type="submit" class="btn btn-submit">Submit</button>
+                      <button (click)="cancel()" type="button" class="btn btn-cancel">Cancel</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="overlay toggle-icon-main"></div>
+    </div>
+  </main>
+</div>

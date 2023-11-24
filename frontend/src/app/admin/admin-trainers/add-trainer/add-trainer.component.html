@@ -1,0 +1,152 @@
+<div class="dash-wrapper admin-content">
+  <app-admin-sidebar></app-admin-sidebar>
+  <app-admin-header></app-admin-header>
+
+  <main class="content-wrapper-section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="dark-bg-box">
+            <h2>Add Trainer</h2>
+          </div>
+          <div class="comn-white-box-inr">
+            <div class="col-12">
+              <div class="dark-bg-box-inr">
+                <form [formGroup]="AddForm" (ngSubmit)="onSubmitForm()" class="row comn-form">
+                  <div class="col-12">
+                    <div class="gym-add-section-imsg">
+                      <p>Trainer Profile :</p>
+                      <div class="image-input">
+                        <input type="file" (change)="upload($event)" accept="image/*" id="imageInput" />
+                        <label for="imageInput" class="image-button">
+                          <img src="../assets/images/trainer-file-icon.svg" alt="" />
+                        </label>
+                        <img src="{{avatar}}" class="image-preview" />
+                        <span class="change-image">Choose different image</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group">
+                      <input type="text" class="form-control comn-style" placeholder="Trainer First Name" formControlName="first_name" [ngClass]="{ 'is-invalid': form_submitted && fval.first_name.errors }"/>
+                      <div *ngIf="form_submitted && fval.first_name.errors" class="invalid-feedback">
+                        <div *ngIf="fval.first_name.errors.required">
+                          First Name is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group">
+                      <input type="text" class="form-control comn-style" placeholder="Trainer Last Name" formControlName="last_name" [ngClass]="{ 'is-invalid': form_submitted && fval.last_name.errors }"/>
+                      <div *ngIf="form_submitted && fval.last_name.errors" class="invalid-feedback">
+                        <div *ngIf="fval.last_name.errors.required">
+                          Last Name is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="email" class="form-control comn-style" placeholder="Email Address" formControlName="email" [ngClass]="{ 'is-invalid': form_submitted && fval.email.errors }"/>
+                      <div *ngIf="form_submitted && fval.email.errors" class="invalid-feedback">
+                        <div *ngIf="fval.email.errors.required">
+                          Email Address is required
+                        </div>
+                        <div *ngIf="fval.email.errors.email">Email Address must be a valid email</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="text" class="form-control comn-style" placeholder="Mobile No." formControlName="phone" [ngClass]="{ 'is-invalid': form_submitted && fval.phone.errors }"/>
+                      <div *ngIf="(fval.phone.invalid ) || (fval.phone.invalid && (fval.phone.dirty || fval.phone.touched))" class="invalid-feedback">
+                        <div *ngIf="fval.phone.errors.required">
+                          Mobile Number is required
+                        </div>
+                        <div *ngIf="fval.phone.errors.pattern">
+                          Invalid Mobile Number
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <textarea class="form-control comn-style" rows="4" placeholder="About Us" formControlName="about" [ngClass]="{ 'is-invalid': form_submitted && fval.about.errors }" ></textarea>
+                      <div *ngIf="form_submitted && fval.about.errors" class="invalid-feedback">
+                        <div *ngIf="fval.about.errors.required">
+                          About Us is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class="frm-ratig">
+                        <p class="mb-0">Rating</p>
+                        <div class="custom-star-rating">
+                          <div class="rating">
+                            <label>
+                              <input type="radio" formControlName="stars" value="1" id="start1" />
+                              <span class="icon">★</span>
+                            </label>
+                            <label>
+                              <input type="radio" formControlName="stars" value="2" id="start2" />
+                              <span class="icon">★</span>
+                              <span class="icon">★</span>
+                            </label>
+                            <label>
+                              <input type="radio" formControlName="stars" value="3" id="start3" />
+                              <span class="icon">★</span>
+                              <span class="icon">★</span>
+                              <span class="icon">★</span>
+                            </label>
+                            <label>
+                              <input type="radio" formControlName="stars" value="4" id="start4" />
+                              <span class="icon">★</span>
+                              <span class="icon">★</span>
+                              <span class="icon">★</span>
+                              <span class="icon">★</span>
+                            </label>
+                            <label>
+                              <input type="radio" formControlName="stars" value="5" id="start5" />
+                              <span class="icon">★</span>
+                              <span class="icon">★</span>
+                              <span class="icon">★</span>
+                              <span class="icon">★</span>
+                              <span class="icon">★</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <select class="custom-select comn-style" formControlName="gym_id" [ngClass]="{ 'is-invalid': form_submitted && fval.gym_id.errors }">
+                        <option value="">Select Gym Name</option>
+                        <option *ngFor="let x of gyms" [value]="x.gym_id">{{x.gym_name}}</option>
+                      </select>
+                      <div *ngIf="form_submitted && fval.gym_id.errors" class="invalid-feedback">
+                        <div *ngIf="fval.gym_id.errors.required">
+                          Gym Name is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-btns text-center">
+                      <button type="submit" class="btn btn-submit">Submit</button>
+                      <button (click)="cancel()" type="button" class="btn btn-cancel">Cancel</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="overlay toggle-icon-main"></div>
+    </div>
+  </main>
+</div>

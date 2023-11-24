@@ -1,0 +1,79 @@
+<div class="dash-wrapper admin-content">
+  <app-admin-sidebar></app-admin-sidebar>
+  <app-admin-header></app-admin-header>
+  <main class="content-wrapper-section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="comn-title">
+            <h2>Trainer Details</h2>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="comn-white-box">
+            <div class="gym-dtels-div-main">
+              <div class="trainer-detls-div-img mb-3">
+                <img src="{{avatar}}" alt="" />
+              </div>
+              <div>
+                <p>{{about}}</p>
+              </div>
+              <div class="dtls-pge-main">
+                <div class="dtls-pge-main-inr">
+                  <h4>Name</h4>
+                  <p>{{first_name}} {{last_name}}</p>
+                </div>
+                <div class="dtls-pge-main-inr">
+                  <h4>Rating</h4>
+                  <div class="custom-star-rating">
+                    <form class="rating">
+                      <label>
+                        <input type="radio" name="stars" value="1" [checked]="rating==1" />
+                        <span class="icon">★</span>
+                      </label>
+                      <label>
+                        <input type="radio" name="stars" value="2" [checked]="rating==2" />
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                      </label>
+                      <label>
+                        <input type="radio" name="stars" value="3" [checked]="rating==3" />
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                      </label>
+                      <label>
+                        <input type="radio" name="stars" value="4" [checked]="rating==4" />
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                      </label>
+                      <label>
+                        <input type="radio" name="stars" value="5" [checked]="rating==5" />
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                      </label>
+                    </form>
+                  </div>
+                </div>
+                <div class="dtls-pge-main-inr">
+                  <h4>Email Address</h4>
+                  <p>{{email}}</p>
+                </div>
+                <div class="dtls-pge-main-inr">
+                  <h4>Mobile No.</h4>
+                  <p>{{phone}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="overlay toggle-icon-main"></div>
+    </div>
+  </main>
+</div>

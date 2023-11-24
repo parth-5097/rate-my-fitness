@@ -1,0 +1,108 @@
+<div class="dash-wrapper admin-content">
+  <app-admin-sidebar></app-admin-sidebar>
+  <app-admin-header></app-admin-header>
+  <main class="content-wrapper-section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="profile-section-main">
+            <div class="profile-section-imgs" style="background: url('../assets/images/profile-bg-1.png'); background-position: center bottom; background-repeat: no-repeat;"></div>
+            <div class="profile-section-btm">
+              <img src="{{avatar}}" alt="" />
+              <div class="profile-section-btm-text">
+                <h4>{{first_name}} {{last_name}}</h4>
+                <p>Admin</p>
+              </div>
+            </div>
+            <div class="profile-section-btns profile-edit">
+              <a routerLink="/admin/edit-profile">
+                <img src="../assets/images/pro-edit-icon.svg" />
+                <span>Edit Profile</span>
+              </a>
+            </div>
+            <div class="profile-section-btns">
+              <a (click)="open_model()" href="javascript:void(0)">
+                <span>Change Password</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="profile-section-main-inner">
+            <div class="profile-section-main-inner-hdr">
+              <h2>Profile Details</h2>
+            </div>
+            <div class="profile-section-main-inner-body">
+              <div class="profile-section-main-inner-body-inr-part">
+                <h4>Email</h4>
+                <p>{{email}}</p>
+              </div>
+              <div class="profile-section-main-inner-body-inr-part">
+                <h4>Country</h4>
+                <p>New York, USA</p>
+              </div>
+              <div class="profile-section-main-inner-body-inr-part">
+                <h4>Contact Number</h4>
+                <p>{{phone}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="overlay toggle-icon-main"></div>
+    </div>
+  </main>
+</div>
+
+<div class="modal fade show" id="changepassword-modal" tabindex="-1" aria-labelledby="changepassword-modal" aria-hidden="true" style="opacity: 0" [ngStyle]="{'display': show_model ? 'block' : 'none','opacity': 1,'background':'#0000004f'}">
+  <div class="modal-dialog modal-dialog-centered modal-cust-small">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Change Password</h5>
+        <button (click)="close_model()" type="button" class="close">
+          <img src="../assets/images/modal-close-icon.svg" alt="" />
+        </button>
+      </div>
+      <form class="row comn-form" [formGroup]="ChangePasswordForm" (ngSubmit)="ChangePassword()">
+        <div class="modal-body pb-0 mx-md-3 pt-md-4">
+          <div class="col-12">
+            <div class="form-group">
+              <input type="password" class="form-control comn-style" placeholder="Old Password" formControlName="password" [ngClass]="{ 'is-invalid': password_submitted && fval.password.errors }"/>
+              <div *ngIf="password_submitted && fval.password.errors" class="invalid-feedback">
+                <div *ngIf="fval.password.errors.required">Old Password is Required</div>
+                <div *ngIf="fval.password.errors.minlength">Old Password must be at least 6 characters</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <input type="password" class="form-control comn-style" placeholder="New Password" formControlName="newpassword" [ngClass]="{ 'is-invalid': password_submitted && fval.newpassword.errors }"/>
+              <div *ngIf="password_submitted && fval.newpassword.errors" class="invalid-feedback">
+                <div *ngIf="fval.newpassword.errors.required">New Password is Required</div>
+                <div *ngIf="fval.newpassword.errors.minlength">New Password must be at least 6 characters</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <input type="password" class="form-control comn-style" placeholder="Re-type Password" formControlName="retypepassword" [ngClass]="{ 'is-invalid': password_submitted && fval.retypepassword.errors }"/>
+              <div *ngIf="password_submitted && fval.retypepassword.errors" class="invalid-feedback">
+                <div *ngIf="fval.retypepassword.errors.required">Re-type Password is Required</div>
+                <div *ngIf="fval.retypepassword.errors.minlength">New Password must be at least 6 characters</div>
+                <div *ngIf="fval.retypepassword.errors.confirmedValidator">New Password and Re-type Password must be match</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <div class="modal-footer border-0 mx-md-4 pb-md-5 justify-content-center">
+                <button type="submit" class="btn btn-submit">Change Password</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

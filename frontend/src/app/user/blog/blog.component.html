@@ -1,0 +1,184 @@
+<div class="container-fluid users-content">
+  <app-user-header></app-user-header>
+  <div class="row row-space-class row-space-class-inr">
+    <div class="col-12 usrs-inr-pages-bg p-0" style="background: url(assets/images/hero-slide-img-1.png); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="usrs-inr-pages-bg-text">
+              <h2 class="text-center">BLOG</h2>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                  <li class="breadcrumb-item"><a routerLink="/home">home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">blog</li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="blog-cust-tabs">
+            <ul class="nav nav-pills justify-content-center my-5" id="pills-tab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <a class="nav-link active first-tab" id="pills-all-tab" data-toggle="pill" href="#pills-all" role="tab" aria-controls="pills-all" aria-selected="true">ALL</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="pills-rmp-tab" data-toggle="pill" href="#pills-rmp" role="tab" aria-controls="pills-rmp" aria-selected="false">RMP Buzz</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="pills-top-tab" data-toggle="pill" href="#pills-top" role="tab" aria-controls="pills-top" aria-selected="false">Top Lists</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link last-tab" id="pills-miscellaneous-tab" data-toggle="pill" href="#pills-miscellaneous" role="tab" aria-controls="pills-miscellaneous" aria-selected="false">Miscellaneous</a>
+              </li>
+            </ul>
+            <div class="tab-content pt-3" id="pills-tabContent">
+              <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
+                <div class="row" *ngIf="BlogData?.length != 0">
+                  <div class="col-xl-4 col-md-6 mb-4" *ngFor="let x of BlogData">
+                    <div class="div-blog-bx">
+                      <div class="div-blog-bx-hdr">
+                        <img src="{{http.backendurl}}{{x.blog_image}}" alt="" />
+                        <div class="div-blog-bx-hdr-shap">
+                          <img src="assets/images/blog-box-shap.svg" alt="" />
+                          <div class="div-blog-bx-hdr-shap-text">
+                            <div class="div-blog-bx-hdr-shap-text-pos">
+                              <p>{{x.date}}</p>
+                              <span>{{x.month}}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="div-blog-bx-btm">
+                        <h4>{{x.title}}</h4>
+                        <p>{{x.description}}</p>
+                        <div class="div-blog-bx-btm-btn">
+                          <a [routerLink]="['/blog-details',x.id]" class="d-flex align-items-center justify-content-center">
+                            <span>Read More</span>
+                            <img src="assets/images/right-arrow.svg" alt="" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="pills-rmp" role="tabpanel" aria-labelledby="pills-rmp-tab">
+                <div class="row" *ngIf="BlogData1?.length != 0">
+                  <div class="col-xl-4 col-md-6 mb-4" *ngFor="let x of BlogData1">
+                    <div class="div-blog-bx">
+                      <div class="div-blog-bx-hdr">
+                        <img src="{{http.backendurl}}{{x.blog_image}}" alt="" />
+                        <div class="div-blog-bx-hdr-shap">
+                          <img src="assets/images/blog-box-shap.svg" alt="" />
+                          <div class="div-blog-bx-hdr-shap-text">
+                            <div class="div-blog-bx-hdr-shap-text-pos">
+                              <p>{{x.date}}</p>
+                              <span>{{x.month}}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="div-blog-bx-btm">
+                        <h4>{{x.title}}</h4>
+                        <p>{{x.description}}</p>
+                        <div class="div-blog-bx-btm-btn">
+                          <a [routerLink]="['/blog-details',x.id]" class="d-flex align-items-center justify-content-center">
+                            <span>Read More</span>
+                            <img src="assets/images/right-arrow.svg" alt="" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="pills-top" role="tabpanel" aria-labelledby="pills-top-tab">
+                <div class="row" *ngIf="BlogData2?.length != 0">
+                  <div class="col-xl-4 col-md-6 mb-4" *ngFor="let x of BlogData2">
+                    <div class="div-blog-bx">
+                      <div class="div-blog-bx-hdr">
+                        <img src="{{http.backendurl}}{{x.blog_image}}" alt="" />
+                        <div class="div-blog-bx-hdr-shap">
+                          <img src="assets/images/blog-box-shap.svg" alt="" />
+                          <div class="div-blog-bx-hdr-shap-text">
+                            <div class="div-blog-bx-hdr-shap-text-pos">
+                              <p>{{x.date}}</p>
+                              <span>{{x.month}}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="div-blog-bx-btm">
+                        <h4>{{x.title}}</h4>
+                        <p>{{x.description}}</p>
+                        <div class="div-blog-bx-btm-btn">
+                          <a [routerLink]="['/blog-details',x.id]" class="d-flex align-items-center justify-content-center">
+                            <span>Read More</span>
+                            <img src="assets/images/right-arrow.svg" alt="" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="pills-miscellaneous" role="tabpanel" aria-labelledby="pills-miscellaneous-tab">
+                <div class="row" *ngIf="BlogData3?.length != 0">
+                  <div class="col-xl-4 col-md-6 mb-4" *ngFor="let x of BlogData3">
+                    <div class="div-blog-bx">
+                      <div class="div-blog-bx-hdr">
+                        <img src="{{http.backendurl}}{{x.blog_image}}" alt="" />
+                        <div class="div-blog-bx-hdr-shap">
+                          <img src="assets/images/blog-box-shap.svg" alt="" />
+                          <div class="div-blog-bx-hdr-shap-text">
+                            <div class="div-blog-bx-hdr-shap-text-pos">
+                              <p>{{x.date}}</p>
+                              <span>{{x.month}}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="div-blog-bx-btm">
+                        <h4>{{x.title}}</h4>
+                        <p>{{x.description}}</p>
+                        <div class="div-blog-bx-btm-btn">
+                          <a [routerLink]="['/blog-details',x.id]" class="d-flex align-items-center justify-content-center">
+                            <span>Read More</span>
+                            <img src="assets/images/right-arrow.svg" alt="" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row ftr-shap-div align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="ftr-shap-class">
+            <h2><span>Find perfect trainer according</span> your needand without westing your valuable time.</h2>
+            <div class="text-center mt-4">
+              <a href="">GET STARTED</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-user-footer></app-user-footer>
+</div>
+

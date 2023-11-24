@@ -1,0 +1,83 @@
+<div class="dash-wrapper admin-content">
+  <app-admin-sidebar></app-admin-sidebar>
+  <app-admin-header></app-admin-header>
+
+  <main class="content-wrapper-section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="dark-bg-box">
+            <h2>Add Blog</h2>
+          </div>
+          <div class="comn-white-box-inr">
+            <div class="col-12">
+              <div class="dark-bg-box-inr">
+                <form [formGroup]="AddForm" (ngSubmit)="onSubmitForm()" class="row comn-form">
+                  <div class="col-12">
+                    <div class="form-group">
+                      <div class="gym-add-section-imsg">
+                        <p>Blog Image:</p>
+                        <div class="gym-add-section-imsg-div">
+                          <div class="image-input">
+                            <input type="file" (change)="upload($event)" accept="image/*" id="imageInput" />
+                            <label for="imageInput" class="image-button">
+                              <img src="../assets/images/file-uplod-bdr.svg" alt="" />
+                            </label>
+                            <img src="{{blog_image}}" class="image-preview" />
+                            <span class="change-image">Choose different image</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <input type="text" class="form-control comn-style" placeholder="Title" formControlName="title" [ngClass]="{ 'is-invalid': form_submitted && fval.title.errors }"/>
+                      <div *ngIf="form_submitted && fval.title.errors" class="invalid-feedback">
+                        <div *ngIf="fval.title.errors.required">
+                          Title is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <textarea class="form-control comn-style" rows="4" placeholder="Description" formControlName="description" [ngClass]="{ 'is-invalid': form_submitted && fval.description.errors }" ></textarea>
+                      <div *ngIf="form_submitted && fval.description.errors" class="invalid-feedback">
+                        <div *ngIf="fval.description.errors.required">
+                          Description is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <select class="custom-select comn-style" formControlName="type" [ngClass]="{ 'is-invalid': form_submitted && fval.type.errors }">
+                        <option value="">Select Type</option>
+                        <option value="1">RMP Buzz</option>
+                        <option value="2">Top Lists</option>
+                        <option value="3">Miscellaneous</option>
+                      </select>
+                      <div *ngIf="form_submitted && fval.type.errors" class="invalid-feedback">
+                        <div *ngIf="fval.type.errors.required">
+                          Blog Type is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-btns text-center">
+                      <button type="submit" class="btn btn-submit">Submit</button>
+                      <button (click)="cancel()" type="button" class="btn btn-cancel">Cancel</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="overlay toggle-icon-main"></div>
+    </div>
+  </main>
+</div>

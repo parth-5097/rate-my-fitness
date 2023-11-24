@@ -1,0 +1,289 @@
+.src-trainer-btm label {
+  color: #263238;
+  font-family: "IntegralCF-Regular ";
+  font-size: 16px;
+  text-transform: uppercase;
+  display: block;
+}
+.src-trainer-btm {
+  padding-top: 15px;
+}
+.instructors-section h3 {
+  color: #262e3a;
+  font-family: "Karla-Regular";
+  margin: 5px 0 50px 0;
+  font-size: 20px;
+}
+.instructors-section-inr {
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+}
+.instructors-section-inr-left {
+  background: #005bea;
+  color: #fff;
+  border-radius: 50%;
+  width: 50px;
+  min-width: 50px;
+  max-width: 50px;
+  height: 50px;
+  vertical-align: middle;
+  line-height: 52px;
+  text-align: center;
+  font-size: 16px;
+  font-family: "Karla-Bold";
+}
+.instructors-section-inr-right {
+  margin-left: 15px;
+  overflow: hidden;
+  position: relative;
+}
+.instructors-section-inr-right h6 {
+  color: #263238;
+  margin-bottom: 0;
+  font-family: "Karla-Regular";
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+.trnr-div-hvr {
+  background: #ffffff;
+  border: 1px solid rgba(38, 38, 38, 0.2);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  padding: 10px 15px;
+  transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  cursor: pointer;
+}
+.trnr-div-hvr:hover {
+  background: #eef4fd;
+}
+.src-trainer-btm ul li {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.src-trainer-btm ul li {
+  display: inline-block;
+}
+.tags-cust-div ul li {
+  color: #262e3a;
+  font-family: "Karla-Regular";
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  display: inline-block;
+  text-align: center;
+  background: rgba(225, 225, 225, 0.5);
+  padding: 10px 25px 9px 25px;
+  font-size: 14px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.usr-top-white-box {
+  padding: 25px 35px;
+}
+.tags-cust-div ul li.active {
+  background: #1d2027;
+  color: #fff;
+}
+.rad-clust {
+  border: 1px solid rgba(38, 38, 38, 0.2);
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  display: inline-block;
+  padding: 10px 15px;
+  width: 250px;
+}
+.src-trainer-btm-ctr {
+  border: 1px solid rgba(38, 38, 38, 0.2);
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  padding: 15px;
+  margin: 10px 0 20px 0;
+}
+.src-trainer-btm-ctr-top img {
+  width: 20px;
+}
+.src-trainer-btm-ctr-top span {
+  display: inline-block;
+  margin-left: 5px;
+  color: #005bea;
+  font-family: "Karla-Bold";
+}
+.src-trainer-btm-ctr-ctr p {
+  color: #263238;
+  margin-bottom: 0;
+  font-family: "Abel-Regular";
+}
+.src-trainer-btm-ctr-ctr {
+  padding: 15px 0;
+}
+.src-trainer-btm-ctr-ctr .btn {
+  color: #24c048;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  background: #dffde6;
+  font-size: 14px;
+  margin-top: 15px;
+  padding: 13px 35px 11px 35px;
+  transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  text-transform: uppercase;
+  display: inline-block;
+  border: 0;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  outline: none;
+}
+.btm-box-new {
+  background: #fff;
+  padding: 15px 15px;
+  box-shadow: 0px 25px 25px rgba(43, 73, 206, 0.04);
+  -webkit-box-shadow: 0px 25px 25px rgba(43, 73, 206, 0.04);
+  -moz-box-shadow: 0px 25px 25px rgba(43, 73, 206, 0.04);
+  margin-top: 30px;
+}
+.bdr-top-box {
+  border-bottom: 1px solid #c4c4c4;
+  padding-bottom: 15px;
+  margin-bottom: 40px;
+  margin-top: 50px;
+}
+.bdr-top-box h2 {
+  color: #005bea;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  font-family: "IntegralCF-Regular";
+  font-size: 24px;
+}
+.bdr-top-box .custom-select {
+  border: 0.5px solid rgba(38, 50, 56, 0.2);
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  background-color: #f9f9f9;
+}
+.btm-box-new-ctr .src-trainer-btm-ctr-top span {
+  color: #262e3a;
+}
+.btm-box-new-ctr .src-trnr-cust h6 {
+  margin-bottom: 0;
+  color: #262e3a;
+  text-transform: uppercase;
+  margin-right: 10px;
+}
+.btm-box-new-ctr .src-trnr-cust {
+  display: flex;
+  align-items: center;
+}
+.dificl-bg {
+  background: #ff5a00;
+}
+.btm-box-new-top .instructors-section-inr-right h6 {
+  font-family: "Karla-Regular";
+}
+.btm-box-new-top .src-trainer-btm ul li span {
+  font-family: "Karla-Regular";
+}
+.tp-div-rate h2 {
+  color: #262e3a;
+  font-family: "Karla-Regular";
+  font-size: 50px;
+  margin-bottom: 0;
+}
+.tp-div-rate h3 {
+  color: #263238;
+  font-family: "Karla-Regular";
+  font-size: 35px;
+  margin-bottom: 0;
+}
+.tp-div-rate p {
+  margin-bottom: 0;
+  color: #263238;
+  font-family: "Karla-Regular";
+}
+.bdr-line-new {
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+}
+.load-more-btn .clr-bg {
+  background: #2b49ce;
+}
+.rating {
+  border: none;
+  float: left;
+}
+.rating > input {
+  display: none;
+}
+.rating > label:before {
+  margin: 0 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+.rating > .half:before {
+  content: "\f089";
+  position: absolute;
+}
+.rating > label {
+  color: #ddd;
+  float: right;
+  margin-bottom: 0;
+}
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #ffd700;
+}
+.rating > input:checked + label:hover,
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label,
+.rating > input:checked ~ label:hover ~ label {
+  color: #ffed85;
+}
+@media (max-width: 767px) {
+  .usr-top-white-box {
+    padding: 15px;
+  }
+  .bdr-line-new {
+    border: 0;
+    margin-bottom: 15px;
+  }
+}
+@media (max-width: 575px) {
+  .bdr-top-box .custom-select {
+    margin-top: 10px;
+  }
+  .btm-box-new-ctr .src-trnr-cust {
+    display: block;
+  }
+  .btm-box-new-ctr .src-trnr-cust h6 {
+    font-size: 13px;
+    margin: 15px 0 15px 0;
+  }
+  .tp-div-rate h2 {
+    font-size: 40px;
+  }
+  .tp-div-rate h3 {
+    font-size: 25px;
+  }
+}

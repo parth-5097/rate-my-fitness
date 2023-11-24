@@ -1,0 +1,297 @@
+<div class="container-fluid users-content">
+  <app-user-header></app-user-header>
+  <div class="row row-space-class row-space-class-inr">
+    <div
+      class="col-12 usrs-inr-pages-bg p-0"
+      style="
+        background: url(assets/images/hero-slide-img-1.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+      "
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="usrs-inr-pages-bg-text">
+              <h2 class="text-center">RATE A TRAINER</h2>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                  <li class="breadcrumb-item active" aria-current="page">
+                    It's your turn to rate trainer {{ first_name }}
+                    {{ last_name }}
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="item">
+            <div class="usr-top-white-box">
+              <form
+                [formGroup]="AddForm"
+                (ngSubmit)="onSubmitForm()"
+                class="row comn-form"
+              >
+                <div class="dosanddonts">
+                  <div class="doheader">
+                    <h1>Rating Do's and Don'ts</h1>
+                  </div>
+                  <div class="doanddontwrap">
+                    <div class="item-left">
+                      <div class="label">Do</div>
+                      <div class="description">
+                        Discuss the trainer’s professional abilities including
+                        teaching style and ability to convey the instruction
+                        clearly.
+                      </div>
+                    </div>
+                    <div class="item-right">
+                      <div class="label">Don't</div>
+                      <div class="description">
+                        Use profanity, name-calling, or derogatory terms. And,
+                        don’t claim that the trainer shows bias or favoritism
+                        for or against you.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-group">
+                    <label>Exercise Type :</label>
+                    <select
+                      class="custom-select form-control comn-style"
+                      formControlName="exercise_id"
+                      [ngClass]="{
+                        'is-invalid': form_submitted && fval.exercise_id.errors
+                      }"
+                    >
+                      <option value="">Select......</option>
+                      <option *ngFor="let x of Exercises" [value]="x.id">
+                        {{ x.name }}
+                      </option>
+                    </select>
+                    <div
+                      *ngIf="form_submitted && fval.exercise_id.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="fval.exercise_id.errors.required">
+                        Exercise Type is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <label>Rate Your Trainer :</label>
+                    <select
+                      class="custom-select form-control comn-style"
+                      formControlName="trainer_rate"
+                      [ngClass]="{
+                        'is-invalid': form_submitted && fval.trainer_rate.errors
+                      }"
+                    >
+                      <option value="">Select......</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                    <div
+                      *ngIf="form_submitted && fval.trainer_rate.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="fval.trainer_rate.errors.required">
+                        Rate Your Trainer is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <label>Level Of Difficulty :</label>
+                    <select
+                      class="custom-select form-control comn-style"
+                      formControlName="level_of_difficulty"
+                      [ngClass]="{
+                        'is-invalid':
+                          form_submitted && fval.level_of_difficulty.errors
+                      }"
+                    >
+                      <option value="">Select......</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                    <div
+                      *ngIf="form_submitted && fval.level_of_difficulty.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="fval.level_of_difficulty.errors.required">
+                        Level Of Difficulty is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <label>Online/Offline Training :</label>
+                    <div class="rad-clust">
+                      <div class="custom-control custom-switch">
+                        <input
+                          type="checkbox"
+                          class="custom-control-input"
+                          id="customSwitch1"
+                          formControlName="is_online_training"
+                          [checked]="is_online_training == 0"
+                          (change)="change_status(is_online_training)"
+                        />
+                        <label class="custom-control-label" for="customSwitch1"
+                          >Online Training</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <label>Would You Take This Trainer Again ?</label>
+                    <div class="rad-clust">
+                      <mat-radio-group
+                        class="tp-radio-group"
+                        formControlName="will_take_training_again"
+                        [ngClass]="{
+                          'is-invalid':
+                            form_submitted &&
+                            fval.will_take_training_again.errors
+                        }"
+                      >
+                        <mat-radio-button class="tp-radio-button" value="1"
+                          >Yes</mat-radio-button
+                        >
+                        <mat-radio-button class="tp-radio-button" value="0"
+                          >No</mat-radio-button
+                        >
+                      </mat-radio-group>
+                      <div
+                        *ngIf="
+                          form_submitted && fval.will_take_training_again.errors
+                        "
+                        class="alert alert-danger"
+                      >
+                        <div
+                          *ngIf="fval.will_take_training_again.errors.required"
+                        >
+                          Would You Take This Trainer Again ?
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <label>Comment :</label>
+                    <textarea
+                      class="form-control comn-style"
+                      rows="5"
+                      placeholder="Comment"
+                      formControlName="comment"
+                      [ngClass]="{
+                        'is-invalid': form_submitted && fval.comment.errors
+                      }"
+                    ></textarea>
+                    <div
+                      *ngIf="form_submitted && fval.comment.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="fval.comment.errors.required">
+                        Comment is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <label>Select Tags :</label>
+                    <div class="tags-cust-div">
+                      <!--                    <select class="custom-select form-control comn-style" formControlName="tags" [ngClass]="{ 'is-invalid': form_submitted && fval.tags.errors }" multiple>-->
+                      <!--                      <option value="">Select......</option>-->
+                      <!--                      <option value="1">GIVES GOOD FEEDBACK</option>-->
+                      <!--                      <option value="2">RESPECTED</option>-->
+                      <!--                      <option value="3">CARING</option>-->
+                      <!--                      <option value="4">INSPIRATIONAL</option>-->
+                      <!--                      <option value="5">CARDIO</option>-->
+                      <!--                      <option value="6">STRENGTH</option>-->
+                      <!--                      <option value="7">TRAIN</option>-->
+                      <!--                      <option value="8">DEDICATION</option>-->
+                      <!--                      <option value="9">RECOVER</option>-->
+                      <!--                      <option value="10">GYMLIFE</option>-->
+                      <!--                      <option value="11">TRAINHARD</option>-->
+                      <!--                      <option value="12">MOTIVATION</option>-->
+                      <!--                    </select>-->
+
+                      <ng-select2
+                        [ngClass]="{
+                          'is-invalid': form_submitted && fval.tags.errors
+                        }"
+                        [(ngModel)]="value"
+                        [options]="options"
+                        [data]="tagsList"
+                        formControlName="tags"
+                        [placeholder]="'Select......'"
+                      >
+                      </ng-select2>
+
+                      <div
+                        *ngIf="form_submitted && fval.tags.errors"
+                        class="invalid-feedback"
+                      >
+                        <div *ngIf="fval.tags.errors.required">
+                          Tags is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="load-more-btn text-center py-3">
+                    <button type="submit" class="btn">SUBMIT</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row ftr-shap-div align-items-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="ftr-shap-class">
+          <h2>
+            <span>Find perfect trainer according</span> your needand without
+            westing your valuable time.
+          </h2>
+          <div class="text-center mt-4">
+            <a href="">GET STARTED</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-user-footer></app-user-footer>

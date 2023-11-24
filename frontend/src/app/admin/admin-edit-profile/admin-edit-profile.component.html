@@ -1,0 +1,94 @@
+<div class="dash-wrapper admin-content">
+  <app-admin-sidebar></app-admin-sidebar>
+  <app-admin-header></app-admin-header>
+  <main class="content-wrapper-section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="profile-section-main">
+            <div class="profile-section-imgs" style="background: url('../assets/images/profile-bg-1.png'); background-position: center bottom; background-repeat: no-repeat;"></div>
+            <div class="profile-section-btm">
+              <div class="image-input">
+                <div class="avatar-upload">
+                  <div class="avatar-edit">
+                    <input type="file" (change)="upload($event)" id="imageUpload" accept=".png, .jpg, .jpeg" />
+                    <label for="imageUpload"></label>
+                  </div>
+                  <div class="avatar-preview">
+                    <div id="imagePreview" style="background-image: url({{avatar}});"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="profile-section-btm-text">
+                <h4>{{first_name}} {{last_name}}</h4>
+                <p>Admin</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-8 col-lg-10 m-auto">
+          <div class="profile-section-main-inner">
+            <div class="profile-section-main-inner-hdr">
+              <h2>Edit Profile</h2>
+            </div>
+            <div class="profile-section-main-inner-body mt-4">
+              <form class="row comn-form" [formGroup]="updateProfileForm" (ngSubmit)="updateProfile()">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control comn-style" placeholder="First Name" formControlName="first_name" [ngClass]="{ 'is-invalid': submitted && fval.first_name.errors }"/>
+                    <div *ngIf="submitted && fval.first_name.errors" class="invalid-feedback">
+                      <div *ngIf="fval.first_name.errors.required">
+                        First Name is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control comn-style" placeholder="Last Name" formControlName="last_name" [ngClass]="{ 'is-invalid': submitted && fval.last_name.errors }"/>
+                    <div *ngIf="submitted && fval.last_name.errors" class="invalid-feedback">
+                      <div *ngIf="fval.last_name.errors.required">
+                        Last Name is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="email" class="form-control comn-style" placeholder="Email Address" formControlName="email" [ngClass]="{ 'is-invalid': submitted && fval.email.errors }" readonly/>
+                    <div *ngIf="submitted && fval.email.errors" class="invalid-feedback">
+                      <div *ngIf="fval.email.errors.required">
+                        Email Address is required
+                      </div>
+                      <div *ngIf="fval.email.errors.email">Email Address must be a valid email address</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control comn-style" placeholder="Contact Number" formControlName="phone" [ngClass]="{ 'is-invalid': submitted && fval.phone.errors }" />
+                    <div *ngIf="(fval.phone.invalid ) || (fval.phone.invalid && (fval.phone.dirty || fval.phone.touched))" class="invalid-feedback">
+                      <div *ngIf="fval.phone.errors.required">
+                        Contact Number is required
+                      </div>
+                      <div *ngIf="fval.phone.errors.pattern">
+                        Invalid Contact Number
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-btns text-center">
+                    <button type="submit" class="btn btn-submit">Submit</button>
+                    <button (click)="cancel()" type="button" class="btn btn-cancel">Cancel</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="overlay toggle-icon-main"></div>
+    </div>
+  </main>
+</div>

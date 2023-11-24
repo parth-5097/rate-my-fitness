@@ -1,0 +1,38 @@
+<header class="header-na header-fix-top-cust">
+  <nav class="navbar navbar-expand fixed-top">
+    <ul class="navbar-nav mr-auto align-items-center hdr-top-box">
+      <li class="nav-item">
+        <div class="hdr-top-box-inr">
+          <div class="toggle-icon-main toggle-icon-main-sec d-lg-none d-block">
+            <img src="../assets/images/toggle-icon.svg" alt="" />
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav align-items-center right-nav-link-new ml-auto">
+      <li>
+        <div class="header-user-profile-inner-cust">
+          <div class="pro-sec-cust">
+            <img src="{{avatar}}" class="d-lg-block d-none" />
+            <div>
+              <h6>{{first_name}} {{last_name}}</h6>
+              <span>Admin</span>
+            </div>
+            <i class="fa fa-ellipsis-v d-lg-none d-block" aria-hidden="true"></i>
+          </div>
+          <div class="profile-inner-cust">
+            <ul>
+              <li>
+                <a routerLink="/admin/profile"><i class="fa fa-user"></i> My Profile</a>
+              </li>
+              <li>
+                <a (click)="logout()" class="border-0"><i class="fa fa-sign-out"></i> Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>

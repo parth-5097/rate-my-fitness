@@ -1,0 +1,55 @@
+.map-section {
+  padding: 100px 0;
+}
+
+.contact-box {
+  text-align: center;
+}
+
+.contact-box span {
+  background: #fff1f3;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.contact-box span img {
+  width: 35px;
+}
+
+.contact-box p {
+  color: #262e3a;
+  font-family: "Karla-Regular";
+  margin-bottom: 0;
+}
+
+.bdr-line {
+  position: relative;
+}
+
+.bdr-line:before {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+@media (max-width: 767px) {
+  .map-section {
+    padding: 50px 0;
+  }
+
+  .bdr-line:before {
+    display: none;
+  }
+}

@@ -1,0 +1,485 @@
+<div class="container-fluid users-content">
+  <app-user-header></app-user-header>
+  <div
+    class="row main-bg-comn row-space-class log-pages-bg"
+    style="
+      background: url(assets/images/log-bg-img-main.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    "
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="log-box-main">
+            <div class="log-box-main-inr">
+              <h2>Create an Account</h2>
+              <p>Account Type</p>
+              <div class="log-cust-tabs">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <a
+                      class="nav-link active"
+                      id="pills-user-tab"
+                      data-toggle="pill"
+                      href="#pills-user"
+                      role="tab"
+                      aria-controls="pills-user"
+                      aria-selected="true"
+                      >USER</a
+                    >
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <a
+                      class="nav-link"
+                      id="pills-trainer-tab"
+                      data-toggle="pill"
+                      href="#pills-trainer"
+                      role="tab"
+                      aria-controls="pills-trainer"
+                      aria-selected="false"
+                      >TRAINER</a
+                    >
+                  </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                  <div
+                    class="tab-pane fade show active"
+                    id="pills-user"
+                    role="tabpanel"
+                    aria-labelledby="pills-user-tab"
+                  >
+                    <form
+                      [formGroup]="AddForm"
+                      (ngSubmit)="onSubmitForm()"
+                      class="row"
+                    >
+                      <div class="col-12">
+                        <div class="form-group">
+                          <div class="input-icon">
+                            <img src="assets/images/uesr-icon.svg" alt="" />
+                          </div>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="First Name"
+                            formControlName="first_name"
+                            [ngClass]="{
+                              'is-invalid':
+                                form_submitted && fval.first_name.errors
+                            }"
+                          />
+                          <div
+                            *ngIf="form_submitted && fval.first_name.errors"
+                            class="invalid-feedback"
+                          >
+                            <div *ngIf="fval.first_name.errors.required">
+                              First Name is required
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-group">
+                          <div class="input-icon">
+                            <img src="assets/images/uesr-icon.svg" alt="" />
+                          </div>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Last Name"
+                            formControlName="last_name"
+                            [ngClass]="{
+                              'is-invalid':
+                                form_submitted && fval.last_name.errors
+                            }"
+                          />
+                          <div
+                            *ngIf="form_submitted && fval.last_name.errors"
+                            class="invalid-feedback"
+                          >
+                            <div *ngIf="fval.last_name.errors.required">
+                              Last Name is required
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-group">
+                          <div class="input-icon">
+                            <img src="assets/images/msg-icon.svg" alt="" />
+                          </div>
+                          <input
+                            type="email"
+                            class="form-control"
+                            placeholder="Email Address"
+                            formControlName="email"
+                            [ngClass]="{
+                              'is-invalid': form_submitted && fval.email.errors
+                            }"
+                          />
+                          <div
+                            *ngIf="form_submitted && fval.email.errors"
+                            class="invalid-feedback"
+                          >
+                            <div *ngIf="fval.email.errors.required">
+                              Email Address is required
+                            </div>
+                            <div *ngIf="fval.email.errors.email">
+                              Email Address must be a valid email
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-group">
+                          <div class="input-icon">
+                            <img src="assets/images/pass-icon.svg" alt="" />
+                          </div>
+                          <input
+                            type="password"
+                            class="form-control"
+                            placeholder="New Password"
+                            formControlName="newpassword"
+                            [ngClass]="{
+                              'is-invalid':
+                                form_submitted && fval.newpassword.errors
+                            }"
+                          />
+                          <div
+                            *ngIf="form_submitted && fval.newpassword.errors"
+                            class="invalid-feedback"
+                          >
+                            <div *ngIf="fval.newpassword.errors.required">
+                              New Password is required
+                            </div>
+                            <div *ngIf="fval.newpassword.errors.minlength">
+                              New Password must be at least 6 characters
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-group">
+                          <div class="input-icon">
+                            <img src="assets/images/pass-icon.svg" alt="" />
+                          </div>
+                          <input
+                            type="password"
+                            class="form-control comn-style"
+                            placeholder="Re-type Password"
+                            formControlName="retypepassword"
+                            [ngClass]="{
+                              'is-invalid':
+                                form_submitted && fval.retypepassword.errors
+                            }"
+                          />
+                          <div
+                            *ngIf="form_submitted && fval.retypepassword.errors"
+                            class="invalid-feedback"
+                          >
+                            <div *ngIf="fval.retypepassword.errors.required">
+                              Re-type Password is required
+                            </div>
+                            <div *ngIf="fval.retypepassword.errors.minlength">
+                              New Password must be at least 6 characters
+                            </div>
+                            <div
+                              *ngIf="
+                                fval.retypepassword.errors.confirmedValidator
+                              "
+                            >
+                              New Password and Re-type Password must be match
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-group">
+                          <div class="login-btn-btm">
+                            <button type="submit" class="btn">SIGNUP</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-10 m-auto">
+                        <div
+                          class="socil-media-icon-div-log row justify-content-center"
+                        >
+                          <!--                          <div class="col-12">-->
+                          <!--                            <div class="socil-media-icon-div-log-line"><span>or</span></div>-->
+                          <!--                          </div>-->
+                          <!--                          <div class="col-sm-6">-->
+                          <!--                            <div class="socil-media-icon-div-log-inr text-center">-->
+                          <!--                              <a href="">-->
+                          <!--                                <img src="assets/images/fb-log-icon.svg" alt="" />-->
+                          <!--                                facebook-->
+                          <!--                              </a>-->
+                          <!--                            </div>-->
+                          <!--                          </div>-->
+                          <!--                          <div class="col-sm-6">-->
+                          <!--                            <div class="socil-media-icon-div-log-inr text-center google-plus">-->
+                          <!--                              <a href="">-->
+                          <!--                                <img src="assets/images/google-plus.svg" alt="" />-->
+                          <!--                                google-->
+                          <!--                              </a>-->
+                          <!--                            </div>-->
+                          <!--                          </div>-->
+                          <div class="col-12">
+                            <div class="bck-log-link text-center mt-sm-4">
+                              <p>
+                                ALREADY HAVE AN ACCOUNT?
+                                <a routerLink="/login">LOGIN</a>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="pills-trainer"
+                    role="tabpanel"
+                    aria-labelledby="pills-trainer-tab"
+                  >
+                    <form
+                      [formGroup]="AddTrainerForm"
+                      (ngSubmit)="onSubmitTrainerForm()"
+                      class="row"
+                    >
+                      <div class="col-12">
+                        <div class="form-group">
+                          <div class="input-icon">
+                            <img src="assets/images/uesr-icon.svg" alt="" />
+                          </div>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="First Name"
+                            formControlName="first_name"
+                            [ngClass]="{
+                              'is-invalid':
+                                trainer_form_submitted &&
+                                fval1.first_name.errors
+                            }"
+                          />
+                          <div
+                            *ngIf="
+                              trainer_form_submitted && fval1.first_name.errors
+                            "
+                            class="invalid-feedback"
+                          >
+                            <div *ngIf="fval1.first_name.errors.required">
+                              First Name is required
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-group">
+                          <div class="input-icon">
+                            <img src="assets/images/uesr-icon.svg" alt="" />
+                          </div>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Last Name"
+                            formControlName="last_name"
+                            [ngClass]="{
+                              'is-invalid':
+                                trainer_form_submitted && fval1.last_name.errors
+                            }"
+                          />
+                          <div
+                            *ngIf="
+                              trainer_form_submitted && fval1.last_name.errors
+                            "
+                            class="invalid-feedback"
+                          >
+                            <div *ngIf="fval1.last_name.errors.required">
+                              Last Name is required
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-group">
+                          <div class="input-icon">
+                            <img src="assets/images/msg-icon.svg" alt="" />
+                          </div>
+                          <input
+                            type="email"
+                            class="form-control"
+                            placeholder="Email Address"
+                            formControlName="email"
+                            [ngClass]="{
+                              'is-invalid':
+                                trainer_form_submitted && fval1.email.errors
+                            }"
+                          />
+                          <div
+                            *ngIf="trainer_form_submitted && fval1.email.errors"
+                            class="invalid-feedback"
+                          >
+                            <div *ngIf="fval1.email.errors.required">
+                              Email Address is required
+                            </div>
+                            <div *ngIf="fval1.email.errors.email">
+                              Email Address must be a valid email
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-group">
+                          <div class="input-icon">
+                            <img src="assets/images/pass-icon.svg" alt="" />
+                          </div>
+                          <input
+                            type="password"
+                            class="form-control"
+                            placeholder="New Password"
+                            formControlName="newpassword"
+                            [ngClass]="{
+                              'is-invalid':
+                                trainer_form_submitted &&
+                                fval1.newpassword.errors
+                            }"
+                          />
+                          <div
+                            *ngIf="
+                              trainer_form_submitted && fval1.newpassword.errors
+                            "
+                            class="invalid-feedback"
+                          >
+                            <div *ngIf="fval1.newpassword.errors.required">
+                              New Password is required
+                            </div>
+                            <div *ngIf="fval1.newpassword.errors.minlength">
+                              New Password must be at least 6 characters
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-group">
+                          <div class="input-icon">
+                            <img src="assets/images/pass-icon.svg" alt="" />
+                          </div>
+                          <input
+                            type="password"
+                            class="form-control comn-style"
+                            placeholder="Re-type Password"
+                            formControlName="retypepassword"
+                            [ngClass]="{
+                              'is-invalid':
+                                trainer_form_submitted &&
+                                fval1.retypepassword.errors
+                            }"
+                          />
+                          <div
+                            *ngIf="
+                              trainer_form_submitted &&
+                              fval1.retypepassword.errors
+                            "
+                            class="invalid-feedback"
+                          >
+                            <div *ngIf="fval1.retypepassword.errors.required">
+                              Re-type Password is required
+                            </div>
+                            <div *ngIf="fval1.retypepassword.errors.minlength">
+                              New Password must be at least 6 characters
+                            </div>
+                            <div
+                              *ngIf="
+                                fval1.retypepassword.errors.confirmedValidator
+                              "
+                            >
+                              New Password and Re-type Password must be match
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-group">
+                          <div class="input-icon">
+                            <img src="assets/images/url_icon.png" alt="" />
+                          </div>
+                          <input
+                            type="text"
+                            class="form-control comn-style"
+                            placeholder="Instagram or facebook url"
+                            formControlName="socialUrl"
+                            [ngClass]="{
+                              'is-invalid':
+                                trainer_form_submitted && fval1.socialUrl.errors
+                            }"
+                          />
+                          <div
+                            *ngIf="
+                              trainer_form_submitted && fval1.socialUrl.errors
+                            "
+                            class="invalid-feedback"
+                          >
+                            <div *ngIf="fval1.socialUrl.errors.required">
+                              Instagram or facebook url is required
+                            </div>
+                            <div *ngIf="fval1.socialUrl.errors.pattern">
+                              Url must end with "/" or check your url
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-group">
+                          <div class="login-btn-btm">
+                            <button type="submit" class="btn">SIGNUP</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-10 m-auto">
+                        <div
+                          class="socil-media-icon-div-log row justify-content-center"
+                        >
+                          <!--                          <div class="col-12">-->
+                          <!--                            <div class="socil-media-icon-div-log-line"><span>or</span></div>-->
+                          <!--                          </div>-->
+                          <!--                          <div class="col-sm-6">-->
+                          <!--                            <div class="socil-media-icon-div-log-inr text-center">-->
+                          <!--                              <a href="">-->
+                          <!--                                <img src="assets/images/fb-log-icon.svg" alt="" />-->
+                          <!--                                facebook-->
+                          <!--                              </a>-->
+                          <!--                            </div>-->
+                          <!--                          </div>-->
+                          <!--                          <div class="col-sm-6">-->
+                          <!--                            <div class="socil-media-icon-div-log-inr text-center google-plus">-->
+                          <!--                              <a href="">-->
+                          <!--                                <img src="assets/images/google-plus.svg" alt="" />-->
+                          <!--                                google-->
+                          <!--                              </a>-->
+                          <!--                            </div>-->
+                          <!--                          </div>-->
+                          <div class="col-12">
+                            <div class="bck-log-link text-center mt-sm-4">
+                              <p>
+                                ALREADY HAVE AN ACCOUNT?
+                                <a routerLink="/login">LOGIN</a>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-user-footer></app-user-footer>
+</div>

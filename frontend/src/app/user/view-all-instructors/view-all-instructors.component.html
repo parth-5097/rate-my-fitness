@@ -1,0 +1,105 @@
+<div class="container-fluid users-content">
+  <app-user-header></app-user-header>
+  <div class="row row-space-class row-space-class-inr">
+    <div class="col-12 usrs-inr-pages-bg p-0" style="background: url({{gym_avatar}}); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="usrs-inr-pages-bg-text">
+              <h2 class="text-center">{{gym_name}}</h2>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                  <li class="breadcrumb-item active" aria-current="page">Showing Instructors</li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="usr-top-white-box">
+            <form class="row comn-form">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input type="search" class="form-control comn-style" (change)="search_instructors($event)" (keyup)="search_instructors($event)" placeholder="Enter Your Instructor’s Name" />
+                </div>
+              </div>
+            </form>
+            <div class="instructors-section">
+              <h3>{{get_json_data.length}} Instructors Found</h3>
+              <div class="row" *ngIf="get_json_data?.length != 0">
+                <div class="col-lg-4 col-md-6 mb-md-5 mb-3" *ngFor="let trainer of get_json_data">
+                  <div class="instructors-section-inr">
+                    <div class="instructors-section-inr-left">
+                      {{trainer.rating.toFixed(1)}}
+                    </div>
+                    <div class="instructors-section-inr-right">
+                      <h6>{{trainer.first_name}} {{trainer.last_name}}</h6>
+                      <div class="instructors-section-inr-star">
+                        <div class="custom-star-rating">
+                          <div class="rating">
+                            <label>
+                              <input type="radio" value="1" id="start1_{{trainer.trainer_id}}" [checked]="trainer.rating==1" />
+                              <span class="icon">★</span>
+                            </label>
+                            <label>
+                              <input type="radio" value="2" id="start2_{{trainer.trainer_id}}" [checked]="trainer.rating==2" />
+                              <span class="icon">★</span>
+                              <span class="icon">★</span>
+                            </label>
+                            <label>
+                              <input type="radio" value="3" id="start3_{{trainer.trainer_id}}" [checked]="trainer.rating==3" />
+                              <span class="icon">★</span>
+                              <span class="icon">★</span>
+                              <span class="icon">★</span>
+                            </label>
+                            <label>
+                              <input type="radio" value="4" id="start4_{{trainer.trainer_id}}" [checked]="trainer.rating==4" />
+                              <span class="icon">★</span>
+                              <span class="icon">★</span>
+                              <span class="icon">★</span>
+                              <span class="icon">★</span>
+                            </label>
+                            <label>
+                              <input type="radio" value="5" id="start5_{{trainer.trainer_id}}" [checked]="trainer.rating==5" />
+                              <span class="icon">★</span>
+                              <span class="icon">★</span>
+                              <span class="icon">★</span>
+                              <span class="icon">★</span>
+                              <span class="icon">★</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <p>({{trainer.total_feedback}} Ratings)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row ftr-shap-div align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="ftr-shap-class">
+            <h2><span>Find perfect trainer according</span> your needand without westing your valuable time.</h2>
+            <div class="text-center mt-4">
+              <a href="">GET STARTED</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-user-footer></app-user-footer>
+</div>

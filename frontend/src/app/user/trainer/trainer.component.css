@@ -1,0 +1,87 @@
+.trainer-white-box {
+  background: #fff;
+  padding: 15px;
+  border-top: 4px solid #ff5a00;
+  box-shadow: 0px 25px 25px rgba(43, 73, 206, 0.04);
+  -webkit-box-shadow: 0px 25px 25px rgba(43, 73, 206, 0.04);
+  -moz-box-shadow: 0px 25px 25px rgba(43, 73, 206, 0.04);
+  height: 100%;
+}
+
+.trainer-white-box img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.trainer-white-box h3 {
+  color: #303030;
+  font-family: "Karla-Regular";
+  font-size: 26px;
+  margin: 15px 0 10px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trainer-white-box p {
+  color: #606060;
+  font-family: "Abel-Regular";
+  margin-bottom: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  min-height: 65px;
+}
+
+.trainer-white-box-btn .btn {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  outline: none;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  color: #0047EF;
+  background: transparent;
+  border: 2px solid #0047EF;
+  padding: 11px 20px 9px 20px;
+  display: inline-block;
+  transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  text-transform: capitalize;
+  font-family: "Karla-Regular";
+}
+
+.trainer-white-box-btn .btn:hover {
+  color: #fff;
+  background: #0047EF;
+}
+
+.trainer-white-box-star {
+  padding: 15px 0 30px;
+}
+
+.mt-top {
+  margin-top: -40px;
+}
+
+@media (max-width: 767px) {
+  .trainer-white-box p {
+    overflow: unset;
+    display: block;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+    min-height: unset;
+  }
+
+  .trainer-white-box {
+    height: auto;
+  }
+}

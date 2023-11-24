@@ -1,0 +1,42 @@
+<aside class="sidebar-main-section">
+  <div class="brand-title">
+    <a href="">
+      <img src="../assets/images/logo-admin.svg" alt="" />
+    </a>
+    <div class="toggle-icon-main">
+      <img src="../assets/images/toggle-icon.svg" alt="" />
+    </div>
+  </div>
+
+  <div class="sidebar-main-section-inner">
+    <ul class="sidebar-main-inner-menu">
+      <li routerLinkActive="active">
+        <a routerLink="/admin/dashboard"><span>Dashboard</span></a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/admin/gym"><span>Gym</span></a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/admin/trainers"><span>Trainers</span></a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/admin/users"><span>Users</span></a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/admin/blogs"><span>Blogs</span></a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/admin/profile"><span>Profile</span></a>
+      </li>
+    </ul>
+
+    <ul class="sidebar-main-inner-menu menu-btm-fix">
+      <li>
+        <a (click)="logout()" >
+          <span>Logout</span>
+          <div class="menu-btm-fix-right"><img src="../assets/images/logout-icon.svg" alt="" /></div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside>

@@ -1,0 +1,40 @@
+<div class="dash-wrapper admin-content">
+  <app-admin-sidebar></app-admin-sidebar>
+  <app-admin-header></app-admin-header>
+
+  <main class="content-wrapper-section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="comn-title">
+            <h2>Blog Details</h2>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="comn-white-box">
+            <div class="gym-dtels-div-main">
+              <div class="gym-dtels-div-img mb-3" *ngIf="blog_image != '' && blog_image != null">
+                <img src="{{blog_image}}" alt="" />
+              </div>
+              <div class="dtls-pge-main-uniq">
+                <div class="dtls-pge-main-uniq-inr">
+                  <h4>Title</h4>
+                  <p>{{title}}</p>
+                </div>
+                <div class="dtls-pge-main-uniq-inr">
+                  <h4>Description</h4>
+                  <p>{{description}}</p>
+                </div>
+                <div class="dtls-pge-main-uniq-inr">
+                  <h4>Date</h4>
+                  <p>{{date}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="overlay toggle-icon-main"></div>
+    </div>
+  </main>
+</div>

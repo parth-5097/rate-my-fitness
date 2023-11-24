@@ -1,0 +1,43 @@
+<div class="container-fluid users-content">
+  <app-user-header></app-user-header>
+  <div class="row row-space-class row-space-class-inr">
+    <div class="col-12 usrs-inr-pages-bg p-0" style="background: url(assets/images/hero-slide-img-1.png); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="usrs-inr-pages-bg-text">
+              <h2 class="text-center">Blog Details</h2>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                  <li class="breadcrumb-item active" aria-current="page">{{title}}</li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="comn-white-box">
+            <div class="gym-dtels-div-main">
+              <div class="gym-dtels-div-img mb-3" *ngIf="blog_image != '' && blog_image != null">
+                <img src="{{blog_image}}" alt="" style="height: 100%" />
+              </div>
+              <div class="dtls-pge-main-uniq">
+                <div class="dtls-pge-main-uniq-inr">
+                  <p>{{description}}</p>
+                  <p>{{date}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-user-footer></app-user-footer>
+</div>

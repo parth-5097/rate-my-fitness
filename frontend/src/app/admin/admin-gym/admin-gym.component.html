@@ -1,0 +1,128 @@
+<div class="dash-wrapper admin-content">
+  <app-admin-sidebar></app-admin-sidebar>
+  <app-admin-header></app-admin-header>
+  <main class="content-wrapper-section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="comn-title d-sm-flex align-items-center">
+            <h2>Gym Lists</h2>
+            <div class="comn-title-right">
+              <a routerLink="/admin/gym/add-gym" class="btn btn-add">add gym</a>
+              <button type="button" (click)="export_csv()" class="btn ml-sm-2 table-inr-btn">Export</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="comn-white-box-table">
+            <table id="add-gym" datatable [dtOptions]="dtOptions" class="display table table-striped table-bordered" cellspacing="0" width="100%">
+              <thead>
+              <div class="export-btn">
+                <button type="button" class="btn table-inr-btn">Export</button>
+              </div>
+              <tr>
+                <th class="no-search-filter">
+                  <div class="tbl-icon-new">
+                    <ul class="d-flex">
+                      <li>
+                        <a href="">
+                          <i class="fa fa-close" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </th>
+                <th>Gym image</th>
+                <th>Gym name</th>
+                <th>Gym Address</th>
+                <th>Location</th>
+                <th>Mobile no.</th>
+                <th class="no-search-filter">Status</th>
+                <th class="no-search-filter">action</th>
+              </tr>
+              </thead>
+              <thead>
+              <th></th>
+              <th></th>
+              <th><input type="text" (change)="filterById()" (keyup)="filterById()" [(ngModel)]="search_field.gym_name" placeholder="Search" name="search-gym_name"/></th>
+              <th><input type="text" (change)="filterById()" (keyup)="filterById()" [(ngModel)]="search_field.description" placeholder="Search" name="search-description"/></th>
+              <th><input type="text" (change)="filterById()" (keyup)="filterById()" [(ngModel)]="search_field.street_address" placeholder="Search" name="search-street_address"/></th>
+              <th><input type="text" (change)="filterById()" (keyup)="filterById()" [(ngModel)]="search_field.mobile" placeholder="Search" name="search-phone"/></th>
+              <th></th>
+              <th></th>
+              </thead>
+              <tbody *ngIf="get_data_json?.length != 0">
+              <tr *ngFor="let x of get_data_json;">
+                <td>
+                  <div class="cust-checkbox-new">
+                    <label class="cust-chk-bx">
+                      <input type="checkbox" />
+                      <span class="cust-chkmark"></span>
+                    </label>
+                  </div>
+                </td>
+                <td>
+                  <div class="tbl-img-div" *ngIf="x.gym_avatar != '' && x.gym_avatar != null">
+                    <a [routerLink]="['/admin/gym/view-gym',x.gym_id]">
+                      <img src="{{adminhttp.backendurl}}{{x.gym_avatar}}" alt="" />
+                    </a>
+                  </div>
+                </td>
+                <td><a [routerLink]="['/admin/gym/view-gym',x.gym_id]">{{x.gym_name}}</a></td>
+                <td>{{x.suite_number}} {{x.street_address}}, {{x.city}}, {{x.state}} {{x.zipcode}}</td>
+                <td>{{x.country}}</td>
+                <td>{{x.phone}}</td>
+                <td>
+                  <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="customSwitch_{{x.gym_id}}" (click)="change_status(x.gym_id)" [checked]="x.status == 1"/>
+                    <label class="custom-control-label" for="customSwitch_{{x.gym_id}}">Active</label>
+                  </div>
+                </td>
+                <td>
+                  <div class="tbl-icon">
+                    <ul class="d-flex align-items-center">
+                      <li>
+                        <a [routerLink]="['/admin/gym/edit-gym',x.gym_id]">
+                          <img src="../assets/images/edit-icon.svg" alt="" />
+                        </a>
+                      </li>
+                      <li>
+                        <a (click)="delete_user(x)">
+                          <img src="../assets/images/delete-icon.svg" alt="" />
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+              <tbody *ngIf="get_data_json?.length == 0">
+              <tr>
+                <td colspan="8" class="no-data-available">No data available!</td>
+              </tr>
+              <tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="plus-icon-fix">
+        <a href="javascript:void(0)" id="pls-icon-click">
+          <img src="../assets/images/plus-icon.svg" alt="" />
+        </a>
+        <div class="plus-icon-fix-inner">
+          <div class="pls-ico">
+            <ul class="pls-ico-inner d-flex flex-column">
+              <li>
+                <button type="button" (click)="export_csv()" class="btn">Export</button>
+              </li>
+              <li>
+                <a routerLink="/admin/gym/add-gym" class="btn">Add Gym</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="overlay toggle-icon-main"></div>
+    </div>
+  </main>
+</div>

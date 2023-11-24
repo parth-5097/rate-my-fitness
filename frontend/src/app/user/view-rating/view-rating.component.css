@@ -1,0 +1,115 @@
+.instructors-section h3 {
+  color: #262e3a;
+  font-family: "NunitoSans-Bold";
+  margin: 5px 0 50px 0;
+  font-size: 20px;
+}
+
+.instructors-section-inr {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.instructors-section-inr-left {
+  background: #005bea;
+  color: #fff;
+  border-radius: 50%;
+  width: 55px;
+  min-width: 55px;
+  max-width: 55px;
+  height: 55px;
+  vertical-align: middle;
+  line-height: 56px;
+  text-align: center;
+  font-size: 16px;
+  font-family: "NunitoSans-Bold";
+}
+
+.instructors-section-inr-right {
+  margin-left: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.instructors-section-inr-right h6 {
+  color: #262e3a;
+  margin-bottom: 0;
+  font-family: "Karla-Bold";
+  font-size: 16px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.instructors-section-inr-right p {
+  color: #263238;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-family: "Abel-Regular";
+}
+
+.instructors-section-inr-star {
+  padding: 10px 0 5px;
+}
+
+.usr-rating-div {
+  border-bottom: 1px solid #c4c4c4;
+  padding: 25px 0;
+}
+
+.usr-top-white-box {
+  padding: 35px 30px;
+}
+
+.instructors-section-inr-right-date h6 {
+  margin-bottom: 0;
+  color: #acabab;
+  font-family: "Karla-Bold";
+  font-size: 14px;
+}
+
+.instructors-section-inr-right-date {
+  min-width: 120px;
+  text-align: right;
+}
+
+.usr-rvw-text h5 {
+  color: #262e3a;
+  margin-bottom: 0;
+  font-family: "Karla-Bold";
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.usr-rvw-text {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.usr-rvw-text .custom-star-rating {
+  width: auto;
+  margin: 0 10px 0 0;
+  position: relative;
+  top: 2px;
+}
+
+@media (max-width: 767px) {
+  .instructors-section-inr {
+    display: block;
+  }
+
+  .instructors-section-inr-right {
+    margin-left: 0;
+    padding-top: 15px;
+  }
+
+  .instructors-section-inr-right-date {
+    text-align: left;
+    min-width: 100%;
+    padding-top: 15px;
+  }
+}

@@ -1,0 +1,23 @@
+.image-input p {
+  color: #262e3a;
+  font-family: "IntegralCF-Regular";
+  margin: 15px 0;
+}
+
+.image-input img {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
+
+.usr-top-white-box .comn-form {
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 767px) {
+  .usr-top-white-box .comn-form {
+    max-width: 100%;
+  }
+}

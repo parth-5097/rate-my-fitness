@@ -1,0 +1,72 @@
+.card-header i {
+  position: absolute;
+  right: 10px;
+  font-size: 24px;
+  top: 50%;
+  -webkit-transform: translateY(-50%) rotate(0deg);
+  -moz-transform: translateY(-50%) rotate(0deg);
+  -ms-transform: translateY(-50%) rotate(0deg);
+  -o-transform: translateY(-50%) rotate(0deg);
+  transform: translateY(-50%) rotate(0deg);
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 29px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.card-header[aria-expanded="true"] i {
+  -webkit-transform: translateY(-50%) rotate(180deg);
+  -moz-transform: translateY(-50%) rotate(180deg);
+  -ms-transform: translateY(-50%) rotate(180deg);
+  -o-transform: translateY(-50%) rotate(180deg);
+  transform: translateY(-50%) rotate(180deg);
+}
+
+#faqs-accordion .card {
+  margin-bottom: 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border: 0;
+  margin-bottom: 15px;
+}
+
+#faqs-accordion .card-header {
+  background: #fff;
+  cursor: pointer;
+  font-family: "Karla-Regular";
+  color: #262e3a;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 15px;
+  padding: 15px 15px 15px 15px;
+  position: relative;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border: 0;
+}
+
+#faqs-accordion .card-body {
+  color: #262e3a;
+  font-family: "Abel-Regular";
+  padding: 10px 15px;
+}
+
+.card-header[aria-expanded="true"] {
+  color: #FF5A00 !important;
+}

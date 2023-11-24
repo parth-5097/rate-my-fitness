@@ -1,0 +1,127 @@
+<div class="container-fluid users-content">
+  <app-user-header></app-user-header>
+  <div class="row row-space-class row-space-class-inr">
+    <div class="col-12 usrs-inr-pages-bg p-0" style="background: url(assets/images/hero-slide-img-1.png); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="usrs-inr-pages-bg-text">
+              <h2 class="text-center">MY ACCOUNT</h2>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                  <li class="breadcrumb-item active" aria-current="page">{{first_name}} {{last_name}}</li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="usr-top-white-box">
+            <form [formGroup]="AddForm" (ngSubmit)="onSubmitForm()" class="row comn-form">
+              <div class="col-12">
+                <div class="form-group">
+                  <div class="gym-add-section-imsg-div">
+                    <div class="image-input">
+                      <div class="avatar-upload">
+                        <div class="avatar-edit">
+                          <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" />
+                          <label for="imageUpload"></label>
+                        </div>
+                        <div class="avatar-preview">
+                          <div id="imagePreview" style="background-image: url({{avatar}});"></div>
+                        </div>
+                      </div>
+                      <p>{{first_name}} {{last_name}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control comn-style" placeholder="First Name" formControlName="first_name" [ngClass]="{ 'is-invalid': form_submitted && fval.first_name.errors }"/>
+                  <div *ngIf="form_submitted && fval.first_name.errors" class="invalid-feedback">
+                    <div *ngIf="fval.first_name.errors.required">
+                      First Name is required
+                    </div>
+                  </div>
+                  <div class="edit-icon-input">
+                    <img src="assets/images/edit-icon-in.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control comn-style" placeholder="Last Name" formControlName="last_name" [ngClass]="{ 'is-invalid': form_submitted && fval.last_name.errors }"/>
+                  <div *ngIf="form_submitted && fval.last_name.errors" class="invalid-feedback">
+                    <div *ngIf="fval.last_name.errors.required">
+                      Last Name is required
+                    </div>
+                  </div>
+                  <div class="edit-icon-input">
+                    <img src="assets/images/edit-icon-in.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input type="email" class="form-control comn-style" placeholder="Email Address" formControlName="email" [ngClass]="{ 'is-invalid': form_submitted && fval.email.errors }"/>
+                  <div *ngIf="form_submitted && fval.email.errors" class="invalid-feedback">
+                    <div *ngIf="fval.email.errors.required">
+                      Email Address is required
+                    </div>
+                    <div *ngIf="fval.email.errors.email">Email Address must be a valid email</div>
+                  </div>
+                  <div class="edit-icon-input">
+                    <img src="assets/images/edit-icon-in.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input type="text" class="form-control comn-style" placeholder="Mobile No." formControlName="phone" [ngClass]="{ 'is-invalid': form_submitted && fval.phone.errors }"/>
+                  <div *ngIf="(fval.phone.invalid ) || (fval.phone.invalid && (fval.phone.dirty || fval.phone.touched))" class="invalid-feedback">
+                    <div *ngIf="fval.phone.errors.required">
+                      Mobile Number is required
+                    </div>
+                    <div *ngIf="fval.phone.errors.pattern">
+                      Invalid Mobile Number
+                    </div>
+                  </div>
+                  <div class="edit-icon-input">
+                    <img src="assets/images/edit-icon-in.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-btns text-center">
+                  <button type="submit" class="btn btn-submit">SAVE</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row ftr-shap-div align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="ftr-shap-class">
+            <h2><span>Find perfect trainer according</span> your needand without westing your valuable time.</h2>
+            <div class="text-center mt-4">
+              <a href="">GET STARTED</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-user-footer></app-user-footer>
+</div>

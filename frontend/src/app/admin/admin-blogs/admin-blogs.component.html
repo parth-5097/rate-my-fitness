@@ -1,0 +1,129 @@
+<div class="dash-wrapper admin-content">
+  <app-admin-sidebar></app-admin-sidebar>
+  <app-admin-header></app-admin-header>
+
+  <main class="content-wrapper-section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="comn-title d-sm-flex align-items-center">
+            <h2>Blog</h2>
+            <div class="comn-title-right">
+              <a routerLink="/admin/blogs/add-blog" class="btn btn-add">add Blog</a>
+              <button type="button" (click)="export_csv()" class="btn ml-sm-2 table-inr-btn">Export</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="comn-white-box-table">
+            <table id="blog-list" datatable [dtOptions]="dtOptions" class="display table table-striped table-bordered" cellspacing="0" width="100%">
+              <thead>
+              <tr>
+                <th class="no-search-filter">
+                  <div class="tbl-icon-new">
+                    <ul class="d-flex">
+                      <li>
+                        <a href="">
+                          <i class="fa fa-close" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </th>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th class="no-search-filter">Status</th>
+                <th class="no-search-filter">action</th>
+              </tr>
+              </thead>
+              <thead>
+              <th></th>
+              <th></th>
+              <th><input type="text" (change)="filterById()" (keyup)="filterById()" [(ngModel)]="search_field.title" placeholder="Search" name="search-title"/></th>
+              <th><input type="text" (change)="filterById()" (keyup)="filterById()" [(ngModel)]="search_field.description" placeholder="Search" name="search-description"/></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              </thead>
+              <tbody *ngIf="get_data_json?.length != 0">
+              <tr *ngFor="let x of get_data_json;">
+                <td>
+                  <div class="cust-checkbox-new">
+                    <label class="cust-chk-bx">
+                      <input type="checkbox" />
+                      <span class="cust-chkmark"></span>
+                    </label>
+                  </div>
+                </td>
+                <td>
+                  <div class="tbl-img-div" *ngIf="x.blog_image != '' && x.blog_image != null">
+                    <a [routerLink]="['/admin/blogs/view-blog',x.id]">
+                      <img src="{{adminhttp.backendurl}}{{x.blog_image}}" alt="" />
+                    </a>
+                  </div>
+                </td>
+                <td>
+                  <a [routerLink]="['/admin/blogs/view-blog',x.id]">
+                    {{x.title}}
+                  </a>
+                </td>
+                <td class="cust-white-spce">
+                  {{x.description}}
+                </td>
+                <td>{{x.created_at}}</td>
+                <td>
+                  <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="customSwitch_{{x.id}}" (click)="change_status(x.id)" [checked]="x.status == 1"/>
+                    <label class="custom-control-label" for="customSwitch_{{x.id}}">Active</label>
+                  </div>
+                </td>
+                <td>
+                  <div class="tbl-icon">
+                    <ul class="d-flex align-items-center">
+                      <li>
+                        <a [routerLink]="['/admin/blogs/edit-blog',x.id]">
+                          <img src="../assets/images/edit-icon.svg" alt="" />
+                        </a>
+                      </li>
+                      <li>
+                        <a (click)="delete_user(x)">
+                          <img src="../assets/images/delete-icon.svg" alt="" />
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+              <tbody *ngIf="get_data_json?.length == 0">
+              <tr>
+                <td colspan="8" class="no-data-available">No data available!</td>
+              </tr>
+              <tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="plus-icon-fix">
+        <a href="javascript:void(0)" id="pls-icon-click">
+          <img src="../assets/images/plus-icon.svg" alt="" />
+        </a>
+        <div class="plus-icon-fix-inner">
+          <div class="pls-ico">
+            <ul class="pls-ico-inner d-flex flex-column">
+              <li>
+                <button type="button" (click)="export_csv()" class="btn">Export CSV</button>
+              </li>
+              <li>
+                <a routerLink="/admin/blogs/add-blog" class="btn">Add Blog</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="overlay toggle-icon-main"></div>
+    </div>
+  </main>
+</div>

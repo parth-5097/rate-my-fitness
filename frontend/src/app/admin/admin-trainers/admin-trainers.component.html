@@ -1,0 +1,167 @@
+<div class="dash-wrapper admin-content">
+  <app-admin-sidebar></app-admin-sidebar>
+  <app-admin-header></app-admin-header>
+  <main class="content-wrapper-section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="comn-title d-sm-flex align-items-center">
+            <h2>Trainer Lists</h2>
+            <div class="comn-title-right">
+              <a routerLink="/admin/trainers/add-trainer" class="btn btn-add">Add Trainer</a>
+              <button type="button" (click)="export_csv()" class="btn ml-sm-2 table-inr-btn">Export</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="comn-white-box-table">
+            <table id="add-Trainer" datatable [dtOptions]="dtOptions" class="display table table-striped table-bordered" cellspacing="0" width="100%">
+              <thead>
+              <tr>
+                <th class="no-search-filter">
+                  <div class="tbl-icon-new">
+                    <ul class="d-flex">
+                      <li>
+                        <a href="">
+                          <i class="fa fa-close" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </th>
+                <th>Profile</th>
+                <th>Trainer Name</th>
+                <th>Gym Name</th>
+                <th>Email Address</th>
+                <th>Rating</th>
+                <th>Mobile no.</th>
+                <th class="no-search-filter">Status</th>
+                <th class="no-search-filter">action</th>
+              </tr>
+              </thead>
+              <thead>
+              <th></th>
+              <th></th>
+              <th><input type="text" (change)="filterById()" (keyup)="filterById()" [(ngModel)]="search_field.first_name" placeholder="Search" name="search-first_name"/></th>
+              <th><input type="text" (change)="filterById()" (keyup)="filterById()" [(ngModel)]="search_field.gym_name" placeholder="Search" name="search-gym_name"/></th>
+              <th><input type="text" (change)="filterById()" (keyup)="filterById()" [(ngModel)]="search_field.email" placeholder="Search" name="search-email"/></th>
+              <th><input type="text" (change)="filterById()" (keyup)="filterById()" [(ngModel)]="search_field.rating" placeholder="Search" name="search-rating"/></th>
+              <th><input type="text" (change)="filterById()" (keyup)="filterById()" [(ngModel)]="search_field.mobile" placeholder="Search" name="search-phone"/></th>
+              <th></th>
+              <th></th>
+              </thead>
+              <tbody *ngIf="get_data_json?.length != 0">
+              <tr *ngFor="let x of get_data_json;">
+                <td>
+                  <div class="cust-checkbox-new">
+                    <label class="cust-chk-bx">
+                      <input type="checkbox" />
+                      <span class="cust-chkmark"></span>
+                    </label>
+                  </div>
+                </td>
+                <td>
+                  <div class="tbl-img-trainer" *ngIf="x.avatar != '' && x.avatar != null">
+                    <a [routerLink]="['/admin/trainers/view-trainer',x.trainer_id]">
+                      <img src="{{adminhttp.backendurl}}{{x.avatar}}" alt="" />
+                    </a>
+                  </div>
+                </td>
+                <td>
+                  <a [routerLink]="['/admin/trainers/view-trainer',x.trainer_id]">
+                    {{x.first_name}} {{x.last_name}}
+                  </a>
+                </td>
+                <td>{{x.gym_name}}</td>
+                <td>{{x.email}}</td>
+                <td>
+                  <div class="custom-star-rating">
+                    <form class="rating">
+                      <label>
+                        <input type="radio" name="stars" value="1" [checked]="x.rating==1"/>
+                        <span class="icon">★</span>
+                      </label>
+                      <label>
+                        <input type="radio" name="stars" value="2" [checked]="x.rating==2" />
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                      </label>
+                      <label>
+                        <input type="radio" name="stars" value="3" [checked]="x.rating==3" />
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                      </label>
+                      <label>
+                        <input type="radio" name="stars" value="4" [checked]="x.rating==4" />
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                      </label>
+                      <label>
+                        <input type="radio" name="stars" value="5" [checked]="x.rating==5" />
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                      </label>
+                    </form>
+                  </div>
+                </td>
+                <td>{{x.phone}}</td>
+                <td>
+                  <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="customSwitch_{{x.trainer_id}}" (click)="change_status(x.trainer_id)" [checked]="x.is_active == 1"/>
+                    <label class="custom-control-label" for="customSwitch_{{x.trainer_id}}">Active</label>
+                  </div>
+                </td>
+                <td>
+                  <div class="tbl-icon">
+                    <ul class="d-flex align-items-center">
+                      <li>
+                        <a [routerLink]="['/admin/trainers/edit-trainer',x.trainer_id]">
+                          <img src="../assets/images/edit-icon.svg" alt="" />
+                        </a>
+                      </li>
+                      <li>
+                        <a (click)="delete_user(x)">
+                          <img src="../assets/images/delete-icon.svg" alt="" />
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+              <tbody *ngIf="get_data_json?.length == 0">
+              <tr>
+                <td colspan="9" class="no-data-available">No data available!</td>
+              </tr>
+              <tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="plus-icon-fix">
+        <a href="javascript:void(0)" id="pls-icon-click">
+          <img src="../assets/images/plus-icon.svg" alt="" />
+        </a>
+        <div class="plus-icon-fix-inner">
+          <div class="pls-ico">
+            <ul class="pls-ico-inner d-flex flex-column">
+              <li>
+                <button type="button" (click)="export_csv()" class="btn">Export CSV</button>
+              </li>
+              <li>
+                <a routerLink="/admin/trainers/add-trainer" class="btn">Add Trainer</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="overlay toggle-icon-main"></div>
+    </div>
+  </main>
+</div>

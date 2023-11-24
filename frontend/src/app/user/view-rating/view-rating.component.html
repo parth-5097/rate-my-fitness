@@ -1,0 +1,111 @@
+<div class="container-fluid users-content">
+  <app-user-header></app-user-header>
+  <div class="row row-space-class row-space-class-inr">
+    <div class="col-12 usrs-inr-pages-bg p-0" style="background: url(assets/images/hero-slide-img-1.png); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="usrs-inr-pages-bg-text">
+              <h2 class="text-center">RATING</h2>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                  <li class="breadcrumb-item active" aria-current="page">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="usr-top-white-box" *ngIf="totalratings >= 1">
+            <div class="usr-rvw-text">
+              <div class="">
+                <div class="custom-star-rating">
+                  <div class="rating">
+                    <label>
+                      <input type="radio" value="1" checked="" />
+                      <span class="icon">★</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <h5><span>{{totalratings}}</span> REVIEWS</h5>
+            </div>
+            <div class="usr-rating-div" *ngFor="let rate of Ratings">
+              <div class="instructors-section-inr">
+                <div class="instructors-section-inr-left">
+                  {{rate.trainer_rate}}
+                </div>
+                <div class="instructors-section-inr-right">
+                  <h6>{{rate.first_name}} {{rate.last_name}}</h6>
+                  <div class="instructors-section-inr-star">
+                    <div class="custom-star-rating">
+                      <div class="rating">
+                        <label>
+                          <input type="radio" name="stars_{{rate.trainer_feedback_id}}" value="1" [checked]="rate.trainer_rate==1" />
+                          <span class="icon">★</span>
+                        </label>
+                        <label>
+                          <input type="radio" name="stars_{{rate.trainer_feedback_id}}" value="2" [checked]="rate.trainer_rate==2" />
+                          <span class="icon">★</span>
+                          <span class="icon">★</span>
+                        </label>
+                        <label>
+                          <input type="radio" name="stars_{{rate.trainer_feedback_id}}" value="3" [checked]="rate.trainer_rate==3" />
+                          <span class="icon">★</span>
+                          <span class="icon">★</span>
+                          <span class="icon">★</span>
+                        </label>
+                        <label>
+                          <input type="radio" name="stars_{{rate.trainer_feedback_id}}" value="4" [checked]="rate.trainer_rate==4" />
+                          <span class="icon">★</span>
+                          <span class="icon">★</span>
+                          <span class="icon">★</span>
+                          <span class="icon">★</span>
+                        </label>
+                        <label>
+                          <input type="radio" name="stars_{{rate.trainer_feedback_id}}" value="5" [checked]="rate.trainer_rate==5" />
+                          <span class="icon">★</span>
+                          <span class="icon">★</span>
+                          <span class="icon">★</span>
+                          <span class="icon">★</span>
+                          <span class="icon">★</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    {{rate.comment}}
+                  </p>
+                </div>
+                <div class="instructors-section-inr-right-date">
+                  <h6>{{rate.feedback_created_at}}</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row ftr-shap-div align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="ftr-shap-class">
+            <h2><span>Find perfect trainer according</span> your needand without westing your valuable time.</h2>
+            <div class="text-center mt-4">
+              <a href="">GET STARTED</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-user-footer></app-user-footer>
+</div>

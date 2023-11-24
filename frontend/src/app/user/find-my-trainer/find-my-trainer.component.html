@@ -1,0 +1,43 @@
+<div class="container-fluid users-content">
+  <app-user-header></app-user-header>
+  <div class="row main-bg-comn row-space-class log-pages-bg" style="background: url(assets/images/log-bg-img-main.png); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="log-box-main">
+            <div class="log-box-main-inr">
+              <h2 class="text-center">I'm looking for a <span>TRAINER</span></h2>
+              <p class="text-center">Search</p>
+              <form [formGroup]="AddForm" (ngSubmit)="onSubmitForm()" class="row">
+                <div class="col-12">
+                  <div class="form-group">
+                    <div class="input-icon">
+                      <img src="assets/images/trainer-icon.svg" alt="" />
+                    </div>
+                    <select class="custom-select form-control" formControlName="trainer_id" [ngClass]="{ 'is-invalid': form_submitted && fval.trainer_id.errors }">
+                      <option value="">TRAINER NAME</option>
+                      <option *ngFor="let x of trainers" [value]="x.trainer_id">{{x.first_name | uppercase }} {{x.last_name | uppercase}}</option>
+                    </select>
+                    <div *ngIf="form_submitted && fval.trainer_id.errors" class="invalid-feedback">
+                      <div *ngIf="fval.trainer_id.errors.required">
+                        Trainer Name is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <div class="login-btn-btm my-3">
+                      <button type="submit" class="btn">SEARCH</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-user-footer></app-user-footer>
+</div>

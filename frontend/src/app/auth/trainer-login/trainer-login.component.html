@@ -1,0 +1,156 @@
+<div class="container-fluid users-content">
+  <app-trainer-header></app-trainer-header>
+  <div
+    class="row main-bg-comn row-space-class log-pages-bg"
+    style="
+      background: url(assets/images/log-bg-img-main.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    "
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="log-box-main">
+            <div class="log-box-main-inr">
+              <h2>LOGIN</h2>
+              <p>Please enter the details to login</p>
+              <form
+                [formGroup]="AddForm"
+                (ngSubmit)="onSubmitForm()"
+                class="row"
+              >
+                <div class="col-12">
+                  <div class="form-group">
+                    <div class="input-icon">
+                      <img src="assets/images/msg-icon.svg" alt="" />
+                    </div>
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Email Address"
+                      formControlName="email"
+                      [ngClass]="{
+                        'is-invalid': form_submitted && fval.email.errors
+                      }"
+                    />
+                    <div
+                      *ngIf="form_submitted && fval.email.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="fval.email.errors.required">
+                        Username is required
+                      </div>
+                      <div *ngIf="fval.email.errors.email">
+                        Username must be a valid email
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <div class="input-icon">
+                      <img src="assets/images/pass-icon.svg" alt="" />
+                    </div>
+                    <input
+                      type="password"
+                      class="form-control"
+                      placeholder="Password"
+                      formControlName="password"
+                      [ngClass]="{
+                        'is-invalid': form_submitted && fval.password.errors
+                      }"
+                    />
+                    <div
+                      *ngIf="form_submitted && fval.password.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="fval.password.errors.required">
+                        Password is Required
+                      </div>
+                      <div *ngIf="fval.password.errors.minlength">
+                        Password must be at least 6 characters
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <div class="forgot-link text-sm-right">
+                      <a routerLink="/forgot-password">Forgot Password?</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <div class="login-btn-btm">
+                      <button type="submit" class="btn">LOGIN</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <!-- <div
+                    id="appleid-signin"
+                    class="signin-button"
+                    data-color="black"
+                    data-border="true"
+                    data-type="sign in"
+                  ></div> -->
+                  <button
+                    class="loginBtn loginBtn--google"
+                    style="float: left"
+                    #loginRef
+                  >
+                    Login with Google
+                  </button>
+                  <button
+                    class="loginBtn loginBtn--facebook"
+                    (click)="submitLogin()"
+                    style="float: right"
+                  >
+                    Login with Facebook
+                  </button>
+                </div>
+                <div class="col-10 m-auto">
+                  <div
+                    class="socil-media-icon-div-log row justify-content-center"
+                  >
+                    <!--                    <div class="col-12">-->
+                    <!--                      <div class="socil-media-icon-div-log-line"><span>or</span></div>-->
+                    <!--                    </div>-->
+                    <!--                    <div class="col-sm-6">-->
+                    <!--                      <div class="socil-media-icon-div-log-inr text-center">-->
+                    <!--                        <a href="">-->
+                    <!--                          <img src="assets/images/fb-log-icon.svg" alt="" />-->
+                    <!--                          facebook-->
+                    <!--                        </a>-->
+                    <!--                      </div>-->
+                    <!--                    </div>-->
+                    <!--                    <div class="col-sm-6">-->
+                    <!--                      <div class="socil-media-icon-div-log-inr text-center google-plus">-->
+                    <!--                        <a href="">-->
+                    <!--                          <img src="assets/images/google-plus.svg" alt="" />-->
+                    <!--                          google-->
+                    <!--                        </a>-->
+                    <!--                      </div>-->
+                    <!--                    </div>-->
+                    <div class="col-12">
+                      <div class="bck-log-link text-center mt-sm-4">
+                        <p>
+                          DON’T HAVE AN ACCOUNT?
+                          <a routerLink="/signup">SIGNUP</a>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-trainer-footer></app-trainer-footer>
+</div>

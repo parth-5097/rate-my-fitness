@@ -1,0 +1,36 @@
+.contact-box span {
+  background: #fff1f3;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.contact-box span img {
+  width: 35px;
+}
+
+.contact-box p {
+  color: #262e3a;
+  font-family: "Abel-Regular";
+  margin-bottom: 0;
+}
+
+.contact-box {
+  text-align: center;
+}
+
+.contact-box a {
+  color: #262e3a;
+  font-family: "Karla-Bold";
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: block;
+}

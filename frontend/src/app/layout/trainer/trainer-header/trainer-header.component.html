@@ -1,0 +1,177 @@
+<div class="header-fixed">
+  <div class="row header-navigation-wrappar">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="navigation-left">
+              <ul>
+                <li>
+                  <a href="mailto:Ratemyfitness@gmail.com">
+                    <img
+                      src="assets/images/mail-icon.svg"
+                      class="navigation-icon"
+                      alt=""
+                    />
+                    <p><span>Email: </span> Ratemyfitness@gmail.com</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="tel:+11244585245">
+                    <img
+                      src="assets/images/call-icon.svg"
+                      class="navigation-icon"
+                      alt=""
+                    />
+                    <p><span>Call:</span> +1 124 458 5245</p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="navigation-right">
+              <div class="d-flex align-items-center">
+                <span>Connect With Us</span>
+                <ul>
+                  <li>
+                    <a href="" target="_blank">
+                      <img src="assets/images/facebook.svg" alt="" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="" target="_blank">
+                      <img src="assets/images/twitter.svg" alt="" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="" target="_blank">
+                      <img src="assets/images/insta.svg" alt="" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row header-menu-wrappar">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="usr-hdr">
+            <div class="usrs-logo">
+              <a href="">
+                <img src="assets/images/logo-user.svg" alt="" />
+              </a>
+            </div>
+            <div class="usr-hdr-right">
+              <ul
+                class="d-flex align-items-center"
+                *ngIf="IsTrainerLogin == false"
+              >
+                <li>
+                  <a
+                    href="javascript:void(0)"
+                    routerLink="/login"
+                    class="login-btn"
+                    >login</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="javascript:void(0)"
+                    routerLink="/signup"
+                    class="sign-btn"
+                    >sign up</a
+                  >
+                </li>
+              </ul>
+              <ul
+                class="d-flex align-items-center"
+                *ngIf="IsTrainerLogin == true"
+              >
+                <li>
+                  <a href="javascript:void(0)" routerLink="/trainer/my-account"
+                    >{{ first_name }} {{ last_name }}</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="javascript:void(0)"
+                    (click)="logout()"
+                    class="sign-btn"
+                    >Logout</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="menu-togle-new">
+              <div class="hamburger-menu-cust">
+                <a href="javascript:void(0)">
+                  <img src="assets/images/bar-icon.svg" alt="" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row header-menu-links">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="header-menu-links-inr">
+            <ul>
+              <li routerLinkActive="active">
+                <a routerLink="/home">Home</a>
+              </li>
+              <li routerLinkActive="active">
+                <a routerLink="/about-us">About</a>
+              </li>
+              <li routerLinkActive="active">
+                <a routerLink="/trainers">Trainers</a>
+              </li>
+              <li routerLinkActive="active">
+                <a routerLink="/blog">Blog</a>
+              </li>
+              <li routerLinkActive="active">
+                <a routerLink="/faq">FAQ</a>
+              </li>
+              <li routerLinkActive="active">
+                <a routerLink="/contact-us">Contact Us</a>
+              </li>
+            </ul>
+            <div class="usr-hdr-right d-lg-none d-block">
+              <ul
+                class="d-flex align-items-center"
+                *ngIf="IsTrainerLogin == false"
+              >
+                <li>
+                  <a routerLink="/login" class="login-btn">login</a>
+                </li>
+                <li>
+                  <a routerLink="/signup" class="sign-btn">sign up</a>
+                </li>
+              </ul>
+              <ul
+                class="d-flex align-items-center"
+                *ngIf="IsTrainerLogin == true"
+              >
+                <li>
+                  <a routerLink="/my-account"
+                    >{{ first_name }} {{ last_name }}</a
+                  >
+                </li>
+                <li>
+                  <a (click)="logout()" class="sign-btn">Logout</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
